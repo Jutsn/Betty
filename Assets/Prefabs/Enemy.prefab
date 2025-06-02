@@ -181,15 +181,14 @@ MonoBehaviour:
   waitTime: 2
   playerCheckDistance: 2
   groundCheckDistance: 1
-  pushbackStrength: 15
   groundCheckSpot: {fileID: 5724435636304645452}
   pushBackSpot: {fileID: 6516260320702849744}
   groundLayer:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 256
   playerLayer:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 128
 --- !u!1 &2784885412620233342
 GameObject:
   m_ObjectHideFlags: 0
