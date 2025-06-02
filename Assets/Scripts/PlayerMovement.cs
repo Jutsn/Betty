@@ -30,13 +30,7 @@ public class PlayerMovement : MonoBehaviour
         {
             Jump();
 		}
-        
-
         FlipSprite();
-
-        
-        
-
     }
 
 	private void FixedUpdate()

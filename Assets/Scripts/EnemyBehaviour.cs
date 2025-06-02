@@ -9,7 +9,6 @@ public class EnemyBehaviour : MonoBehaviour
 	[SerializeField] float waitTime = 2f;
 	[SerializeField] private float playerCheckDistance = 100f;
 	[SerializeField] private float groundCheckDistance = 1f;
-	[SerializeField] private float pushbackStrength = 5f;
 
 	private bool isMovingRight = false;
 	private bool isWaiting;
