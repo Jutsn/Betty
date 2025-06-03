@@ -146,11 +146,13 @@ public class PlayerLighting : MonoBehaviour
 		if (batterySO.energy > 0)
 		{
 			batterySO.energy -= damage;
+			UIManager.Instance.UpdateBatteryChargeUI();
 		}
 		if (batterySO.energy <= 0)
 		{
 			batterySO.energy = 0;
 			GameManager.Instance.gameOver = true;
+			UIManager.Instance.UpdateBatteryChargeUI();
 		}
 	}
 }
