@@ -166,6 +166,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   batteryChargeSlider: {fileID: 564209629}
   batterySO: {fileID: 11400000, guid: 414ee0b95db65ef4381599f917b654ba, type: 2}
+  chargeStationPanel: {fileID: 0}
 --- !u!1 &564209627
 GameObject:
   m_ObjectHideFlags: 0
@@ -925,9 +926,11 @@ MonoBehaviour:
   playerLight: {fileID: 1859837435}
   batterySO: {fileID: 11400000, guid: 414ee0b95db65ef4381599f917b654ba, type: 2}
   shootCooldown: 0
+  shootCost: 10
   unlitMaterial: {fileID: 2100000, guid: 9dfc825aed78fcd4ba02077103263b40, type: 2}
   litMaterial: {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   targetSprite: {fileID: 567967929}
+  isInChargingStation: 0
   lightActive: 0
 --- !u!114 &1503845975
 MonoBehaviour:
