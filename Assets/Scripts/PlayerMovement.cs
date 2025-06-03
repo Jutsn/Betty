@@ -6,7 +6,6 @@ public class PlayerMovement : MonoBehaviour
     
     [SerializeField]float moveSpeed = 5f;
     [SerializeField] float jumpPower = 4f;
-    [SerializeField] float wallCheckDistance = 0.8f;
 	public float horizontalInput; //public lassen, wird benutzt
 
 	[SerializeField] float playerHeight = 0.8f;
