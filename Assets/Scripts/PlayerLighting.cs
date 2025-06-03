@@ -12,12 +12,16 @@ public class PlayerLighting : MonoBehaviour
     [SerializeField]
     private float shootCooldown = 5f;
     [SerializeField]
+    private float shootCost = 10f;
+    [SerializeField]
     private Material unlitMaterial;
     [SerializeField]
     private Material litMaterial;
     [SerializeField]
     private SpriteRenderer targetSprite;
 
+    [SerializeField]
+    private bool isInChargingStation;   
     public bool lightActive;
     private bool canShoot = true;
     
@@ -26,6 +30,16 @@ public class PlayerLighting : MonoBehaviour
     public void Start()
     {
         StartCoroutine(LoseEnergy());
+    }
+
+    private void OnEnable() 
+    {
+        ChargingStation.OnPlayerInChargingStation += HandleChargingStation;  
+    }
+
+    private void OnDisable()
+    {
+        ChargingStation.OnPlayerInChargingStation -= HandleChargingStation;
     }
 
     public void Update()
@@ -47,16 +61,36 @@ public class PlayerLighting : MonoBehaviour
                 lightActive = true;
             }
 
-        if(Input.GetKeyDown(KeyCode.Q) && canShoot)
+        if(Input.GetKeyDown(KeyCode.Q) && canShoot && batterySO.energy > shootCost)
         {
             Shoot();
             StartCoroutine(ShotCooldown());   
         }
 
+    	if (isInChargingStation && Input.GetKeyDown(KeyCode.E))
+        {
+            batterySO.energy = batterySO.maxEnergy;
+            UIManager.Instance.UpdateBatteryChargeUI();
+            Debug.Log("Battery recharged!");
+        }
     }
+
+    private void HandleChargingStation(bool entered, GameObject player)
+    {
+        Debug.Log("EventInvoked");
+        if (player == this.gameObject)
+        {
+            isInChargingStation = entered;    
+        }
+    }
+
+
+    
 
     public void Shoot()
     {
+            batterySO.energy -= shootCost;
+            UIManager.Instance.UpdateBatteryChargeUI();
             GameObject lightOrb =  LightOrbPool.Instance.GetPooledLightOrb();
             lightOrb.transform.position = transform.position * 2;
             lightOrb.gameObject.SetActive(true);
@@ -76,7 +110,6 @@ public class PlayerLighting : MonoBehaviour
     IEnumerator ShotCooldown()
     {
         canShoot = false;
-        Debug.Log("cooldown");
         yield return new WaitForSeconds(shootCooldown);
         canShoot = true;
     }
@@ -89,7 +122,6 @@ public class PlayerLighting : MonoBehaviour
             while (lightActive && batterySO.energy > 0)
             {
                 batterySO.energy -= batterySO.passiveEnergyConsumption;
-                Debug.Log("Test2");
                 UIManager.Instance.UpdateBatteryChargeUI();
                 yield return new WaitForSeconds(1f);
             }

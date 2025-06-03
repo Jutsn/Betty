@@ -21,29 +21,30 @@ public class PlayerMovement : MonoBehaviour
         knockback = GetComponent<KnockBack>();
     }
 
+        
     void Update()
     {
-		GetMoveInput();
+        GetMoveInput();
 
-		if (!knockback.isBeingKnockedBack)
+        if (!knockback.isBeingKnockedBack)
         {
             Jump();
-		}
+        }
         FlipSprite();
     }
 
-	private void FixedUpdate()
-	{
-		if (!knockback.isBeingKnockedBack)
+    private void FixedUpdate()
+    {
+        if (!knockback.isBeingKnockedBack)
         {
-			Move();
-		}
-			
-	}
+            Move();
+        }
 
-	
+    }
 
-	void FlipSprite()
+
+
+    void FlipSprite()
     {
         if (isFacingRight && horizontalInput < 0 || !isFacingRight && horizontalInput > 0)
         {
@@ -54,20 +55,20 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-	private void OnCollisionEnter2D(Collision2D collision)
-	{
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
         isJumping = false;
-	}
+    }
 
     void Move()
     {
-		rb.linearVelocity = new Vector2(horizontalInput * moveSpeed, rb.linearVelocity.y);
-	}
+        rb.linearVelocity = new Vector2(horizontalInput * moveSpeed, rb.linearVelocity.y);
+    }
 
     void GetMoveInput()
     {
-		horizontalInput = Input.GetAxis("Horizontal");
-	}
+        horizontalInput = Input.GetAxis("Horizontal");
+    }
 
     private void Jump()
     {
