@@ -96,7 +96,8 @@ public class PlayerLighting : MonoBehaviour
             batterySO.energy -= shootCost;
             UIManager.Instance.UpdateBatteryChargeUI();
             GameObject lightOrb =  LightOrbPool.Instance.GetPooledLightOrb();
-            lightOrb.transform.position = transform.position * 2;
+            if (lightOrb != null)
+            {
             lightOrb.gameObject.SetActive(true);
             lightOrb.transform.position = transform.position;
 
@@ -105,9 +106,11 @@ public class PlayerLighting : MonoBehaviour
             Vector2 shootDirection = mouseWorldPos - (Vector2)transform.position;
 
             // Schusskraft anpassen je nach Gefühl (z. B. 15f)
-            float shootForce = 15    ;
+            float shootForce = 15f;
 
             lightOrb.GetComponent<LightOrbBehaviour>().ShootLightOrb(shootDirection, shootForce);
+            }
+
    
     }
 
