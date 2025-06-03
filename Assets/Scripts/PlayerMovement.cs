@@ -14,7 +14,6 @@ public class PlayerMovement : MonoBehaviour
 
     Rigidbody2D rb;
     private KnockBack knockback;
-	public BatterySO playerBattery;
 
 	void Start()
     {
@@ -79,16 +78,5 @@ public class PlayerMovement : MonoBehaviour
 		}
 	}
 
-	public void GetEnergyDamage(float damage)
-	{
-		if(playerBattery.energy > 0)
-		{
-			playerBattery.energy -= damage;
-		}
-		else if (playerBattery.energy <= 0)
-		{
-			playerBattery.energy = 0;
-			GameManager.Instance.gameOver = true;
-		}	
-	}
+	
 }

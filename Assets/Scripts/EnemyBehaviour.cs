@@ -127,9 +127,10 @@ public class EnemyBehaviour : MonoBehaviour
 		{
 			GameObject player = collision.gameObject;
 			PlayerMovement playerMovementScript = collision.gameObject.GetComponent<PlayerMovement>();
+			PlayerLighting playerLightningScript = collision.gameObject.GetComponent<PlayerLighting>();
 			knockBackScript = collision.gameObject.GetComponent<KnockBack>();
 
-			playerMovementScript.GetEnergyDamage(batteryDamageThroughEnemy);
+			playerLightningScript.GetEnergyDamage(batteryDamageThroughEnemy);
 
 			//knockback
 			if (player.transform.position.x > transform.position.x)//wenn rechts vom gegner mach das

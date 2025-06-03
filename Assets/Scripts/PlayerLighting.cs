@@ -104,4 +104,17 @@ public class PlayerLighting : MonoBehaviour
             
         yield return null;
     }
+
+	public void GetEnergyDamage(float damage)
+	{
+		if (batterySO.energy > 0)
+		{
+			batterySO.energy -= damage;
+		}
+		else if (batterySO.energy <= 0)
+		{
+			batterySO.energy = 0;
+			GameManager.Instance.gameOver = true;
+		}
+	}
 }
