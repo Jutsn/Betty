@@ -3,20 +3,20 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public bool isPushed;
-    public float horizontalInput;
+    
     [SerializeField]float moveSpeed = 5f;
-
-    bool isFacingRight;
-
-	[SerializeField] float jumpPower = 4f;
-    bool isJumping = false;
+    [SerializeField] float jumpPower = 4f;
+	
+	bool isFacingRight;
+	bool isJumping = false;
+	public bool isPushed;
+	public float horizontalInput;
 
     Rigidbody2D rb;
-
     private KnockBack knockback;
+	public BatterySO playerBattery;
 
-    void Start()
+	void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         knockback = GetComponent<KnockBack>();
@@ -77,5 +77,18 @@ public class PlayerMovement : MonoBehaviour
 			rb.linearVelocity = new Vector2(rb.linearVelocityX, jumpPower);
 			isJumping = true;
 		}
+	}
+
+	public void GetEnergyDamage(float damage)
+	{
+		if(playerBattery.energy > 0)
+		{
+			playerBattery.energy -= damage;
+		}
+		else if (playerBattery.energy <= 0)
+		{
+			playerBattery.energy = 0;
+			GameManager.Instance.gameOver = true;
+		}	
 	}
 }

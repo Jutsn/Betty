@@ -9,10 +9,12 @@ public class EnemyBehaviour : MonoBehaviour
 	[SerializeField] float waitTime = 2f;
 	[SerializeField] private float playerCheckDistance = 100f;
 	[SerializeField] private float groundCheckDistance = 1f;
+	[SerializeField] private float batteryDamageThroughEnemy;
 
 	private bool isMovingRight = false;
 	private bool isWaiting;
 	private float waitTimer = 0;
+	public bool isDeactivated = false;
 
 	public Transform groundCheckSpot;
 	public Transform pushBackSpot;
@@ -23,6 +25,7 @@ public class EnemyBehaviour : MonoBehaviour
 	Rigidbody2D rb;
 
 	private KnockBack knockBackScript;
+	
 
 	void Start()
 	{
@@ -33,36 +36,44 @@ public class EnemyBehaviour : MonoBehaviour
 	}
 	private void Update()
 	{
-		RaycastHit2D groundInfo = Physics2D.Raycast(groundCheckSpot.position, Vector2.down, groundCheckDistance, groundLayer);
-		if (groundInfo.collider == null)
+		if (!isDeactivated)
 		{
-			isWaiting = true;
+			RaycastHit2D groundInfo = Physics2D.Raycast(groundCheckSpot.position, Vector2.down, groundCheckDistance, groundLayer);
+			if (groundInfo.collider == null)
+			{
+				isWaiting = true;
+			}
+			SearchForPlayer();
+			ChargeAtPlayer();
 		}
-		SearchForPlayer();
-		ChargeAtPlayer();
+		
 	}
 
 	private void FixedUpdate()
 	{
-		if (isMovingRight && !isWaiting)
+		if (!isDeactivated)
 		{
-			rb.linearVelocity = new Vector2(enemyMoveSpeed, rb.linearVelocity.y);
-		}
-		else if (!isMovingRight && !isWaiting)
-		{
-			rb.linearVelocity = new Vector2(-enemyMoveSpeed, rb.linearVelocity.y);
-		}
-		else if (isWaiting)
-		{
-			waitTimer += Time.deltaTime;
-			if (waitTimer >= waitTime)
+			if (isMovingRight && !isWaiting)
 			{
-				FlipSprite();
-				ChangeDirection();
-				waitTimer = 0;
-				isWaiting = false;
+				rb.linearVelocity = new Vector2(enemyMoveSpeed, rb.linearVelocity.y);
+			}
+			else if (!isMovingRight && !isWaiting)
+			{
+				rb.linearVelocity = new Vector2(-enemyMoveSpeed, rb.linearVelocity.y);
+			}
+			else if (isWaiting)
+			{
+				waitTimer += Time.deltaTime;
+				if (waitTimer >= waitTime)
+				{
+					FlipSprite();
+					ChangeDirection();
+					waitTimer = 0;
+					isWaiting = false;
+				}
 			}
 		}
+		
 	}
 
 	void FlipSprite()
@@ -104,21 +115,40 @@ public class EnemyBehaviour : MonoBehaviour
 
 	private void OnCollisionEnter2D(Collision2D collision)
 	{
-		if(collision.gameObject.CompareTag("Player"))
+		if (!isDeactivated)
 		{
-			Rigidbody2D playerRb = collision.gameObject.GetComponent<Rigidbody2D>();
+			PlayerCollision(collision);
+		}
+	}
+
+	void PlayerCollision(Collision2D collision)
+	{
+		if (collision.gameObject.CompareTag("Player"))
+		{
+			GameObject player = collision.gameObject;
 			PlayerMovement playerMovementScript = collision.gameObject.GetComponent<PlayerMovement>();
 			knockBackScript = collision.gameObject.GetComponent<KnockBack>();
+
+			playerMovementScript.GetEnergyDamage(batteryDamageThroughEnemy);
+
 			//knockback
-			if (isMovingRight)//wennlinks vom gegner mach das
+			if (player.transform.position.x > transform.position.x)//wenn rechts vom gegner mach das
 			{
 				knockBackScript.CallKnockback(Vector2.right, Vector2.up, playerMovementScript.horizontalInput);
 			}
-			else if (!isMovingRight) //wenn rechts vom Gegner mach das
+			else if (player.transform.position.x < transform.position.x) //wenn links vom Gegner mach das
 			{
 				knockBackScript.CallKnockback(Vector2.left, Vector2.up, playerMovementScript.horizontalInput);
 			}
-			
 		}
+	}
+	public void DeactivateEnemy()
+	{
+		isDeactivated = true;
+	}
+
+	public void ReActivateEnemy() // Beim Levelzurücksetzen callen
+	{
+		isDeactivated = false;
 	}
 }

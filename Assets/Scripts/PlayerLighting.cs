@@ -19,7 +19,6 @@ public class PlayerLighting : MonoBehaviour
     private SpriteRenderer targetSprite;
 
     public bool lightActive;
-    private bool gameOver = false;
     private bool canShoot = true;
     
 
@@ -84,16 +83,22 @@ public class PlayerLighting : MonoBehaviour
 
     IEnumerator LoseEnergy()
     {
-        while(!gameOver)
+        while(!GameManager.Instance.gameOver)
         {
             Debug.Log("Test1");
-            while (lightActive)
+            while (lightActive && batterySO.energy > 0)
             {
                 batterySO.energy -= batterySO.passiveEnergyConsumption;
                 Debug.Log("Test2");
                 UIManager.Instance.UpdateBatteryChargeUI();
                 yield return new WaitForSeconds(1f);
             }
+            if (batterySO.energy <= 0)
+            {
+				batterySO.energy = 0;
+                GameManager.Instance.gameOver = true;
+
+			}
             yield return new WaitForSeconds(1f);
         }
             
