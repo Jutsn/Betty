@@ -9,6 +9,7 @@ public class PlayerLighting : MonoBehaviour
     private Light2D playerLight;
     [SerializeField]
     private BatterySO batterySO;    
+    private ChargingStation currentChargingStation;
     [SerializeField]
     private float shootCooldown = 5f;
     [SerializeField]
@@ -67,20 +68,23 @@ public class PlayerLighting : MonoBehaviour
             StartCoroutine(ShotCooldown());   
         }
 
-    	if (isInChargingStation && Input.GetKeyDown(KeyCode.E))
+        if (isInChargingStation && Input.GetKeyDown(KeyCode.E))
         {
             batterySO.energy = batterySO.maxEnergy;
             UIManager.Instance.UpdateBatteryChargeUI();
             Debug.Log("Battery recharged!");
+            
+            currentChargingStation.TrySetCheckpoint(gameObject);
         }
     }
 
-    private void HandleChargingStation(bool entered, GameObject player)
+    private void HandleChargingStation(bool entered, GameObject player,ChargingStation station)
     {
         Debug.Log("EventInvoked");
         if (player == this.gameObject)
         {
-            isInChargingStation = entered;    
+            isInChargingStation = entered; 
+            currentChargingStation = station;   
         }
     }
 
