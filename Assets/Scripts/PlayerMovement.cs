@@ -14,13 +14,15 @@ public class PlayerMovement : MonoBehaviour
 	bool isJumping = false;
     private bool grounded;
 
-    Rigidbody2D rb;
+    private Rigidbody2D rb;
+    private Animator animator;
     private KnockBack knockback;
     public LayerMask groundLayer;
 
 	void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        animator = GetComponentInChildren<Animator>();
         knockback = GetComponent<KnockBack>();
     }
 
@@ -63,12 +65,25 @@ public class PlayerMovement : MonoBehaviour
 
     void Move()
     {
-	    rb.linearVelocity = new Vector2(horizontalInput * moveSpeed, rb.linearVelocity.y);
+        rb.linearVelocity = new Vector2(horizontalInput * moveSpeed, rb.linearVelocity.y);
 	}
+
+    void moveAnimation()
+    {
+        if(rb.linearVelocity.x != 0)
+        {
+            animator.SetBool("isMoving", true);
+        }
+        else
+        {
+            animator.SetBool("isMoving", false);
+        }
+    }
 
     void GetMoveInput()
     {
         horizontalInput = Input.GetAxis("Horizontal");
+        moveAnimation();
     }
 
     private void Jump()

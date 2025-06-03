@@ -559,10 +559,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 3190721164722833843, guid: 5d56bb5faf3c1394ea9d630d29dc1d08, type: 3}
-      propertyPath: shootCooldown
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 3413295258356709689, guid: 5d56bb5faf3c1394ea9d630d29dc1d08, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -602,6 +598,22 @@ PrefabInstance:
     - target: {fileID: 3413295258356709689, guid: 5d56bb5faf3c1394ea9d630d29dc1d08, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7225222429879588142, guid: 5d56bb5faf3c1394ea9d630d29dc1d08, type: 3}
+      propertyPath: m_SpriteTilingProperty.newSize.x
+      value: 1.5609756
+      objectReference: {fileID: 0}
+    - target: {fileID: 7225222429879588142, guid: 5d56bb5faf3c1394ea9d630d29dc1d08, type: 3}
+      propertyPath: m_SpriteTilingProperty.newSize.y
+      value: 1.1707317
+      objectReference: {fileID: 0}
+    - target: {fileID: 7225222429879588142, guid: 5d56bb5faf3c1394ea9d630d29dc1d08, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 1.5609756
+      objectReference: {fileID: 0}
+    - target: {fileID: 7225222429879588142, guid: 5d56bb5faf3c1394ea9d630d29dc1d08, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 1.1707317
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
