@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 637332505026519657}
   m_Layer: 0
   m_Name: Enemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -106,7 +106,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 2
-  m_LinearDamping: 1
+  m_LinearDamping: 4
   m_AngularDamping: 0.05
   m_GravityScale: 1
   m_Material: {fileID: 0}
@@ -180,7 +180,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyMoveSpeed: 2
   waitTime: 2
-  playerCheckDistance: 2
+  playerCheckDistance: 3.5
   groundCheckDistance: 1
   batteryDamageThroughEnemy: 25
   isDeactivated: 0
@@ -248,7 +248,7 @@ Transform:
   m_GameObject: {fileID: 3889517761964507596}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.4, y: -0.47, z: 0.060664263}
+  m_LocalPosition: {x: -1.13, y: -0.47, z: 0.060664263}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

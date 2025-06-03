@@ -13,6 +13,7 @@ public class EnemyBehaviour : MonoBehaviour
 
 	private bool isMovingRight = false;
 	private bool isWaiting;
+	private bool isChasingPlayer;
 	private float waitTimer = 0;
 	public bool isDeactivated = false;
 
@@ -63,6 +64,10 @@ public class EnemyBehaviour : MonoBehaviour
 			}
 			else if (isWaiting)
 			{
+				if (isChasingPlayer)
+				{
+					rb.linearVelocity = new Vector2(Mathf.Lerp(rb.linearVelocity.x, 0, 0.9f), rb.linearVelocity.y);
+				}
 				waitTimer += Time.deltaTime;
 				if (waitTimer >= waitTime)
 				{
@@ -105,10 +110,12 @@ public class EnemyBehaviour : MonoBehaviour
 	{
 		if (playerInfo.collider != null)
 		{
+			isChasingPlayer = true;
 			enemyMoveSpeed = chargeSpeed;
 		}
 		else
 		{
+			isChasingPlayer = false;
 			enemyMoveSpeed = walkSpeed;
 		}
 	}
@@ -118,6 +125,7 @@ public class EnemyBehaviour : MonoBehaviour
 		if (!isDeactivated)
 		{
 			PlayerCollision(collision);
+			EnemyCollision(collision);
 		}
 	}
 
@@ -142,6 +150,15 @@ public class EnemyBehaviour : MonoBehaviour
 				knockBackScript.CallKnockback(Vector2.left, Vector2.up, playerMovementScript.horizontalInput);
 			}
 		}
+	}
+	void EnemyCollision(Collision2D collision)
+	{
+		if (collision.gameObject.CompareTag("Enemy"))
+		{
+			FlipSprite();
+			ChangeDirection();
+		}
+			
 	}
 	public void DeactivateEnemy()
 	{
