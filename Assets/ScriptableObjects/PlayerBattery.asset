@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxEnergy: 100
   energy: 0
-  passiveEnergyConsumption: 0.5
+  passiveEnergyConsumption: 1

@@ -23,11 +23,13 @@ public class PlayerLighting : MonoBehaviour
 
     [SerializeField]
     private bool isInChargingStation;   
-    public bool lightActive;
+    public bool lightActive = true;
     private bool canShoot = true;
     
 
-
+    private void Awake() {
+        lightActive = true;
+    }
     public void Start()
     {
         StartCoroutine(LoseEnergy());
@@ -120,26 +122,24 @@ public class PlayerLighting : MonoBehaviour
 
     IEnumerator LoseEnergy()
     {
-        while(!GameManager.Instance.gameOver)
+        while (!GameManager.Instance.gameOver)
         {
-            Debug.Log("Test1");
-            while (lightActive && batterySO.energy > 0)
+            if (lightActive && batterySO.energy > 0)
             {
                 batterySO.energy -= batterySO.passiveEnergyConsumption;
                 UIManager.Instance.UpdateBatteryChargeUI();
-                yield return new WaitForSeconds(1f);
             }
+
             if (batterySO.energy <= 0)
             {
-				batterySO.energy = 0;
+                batterySO.energy = 0;
                 GameManager.Instance.gameOver = true;
+            }
 
-			}
             yield return new WaitForSeconds(1f);
-        }
-            
-        yield return null;
-    }
+        }   
+    yield return null;
+}
 
 	public void GetEnergyDamage(float damage)
 	{
