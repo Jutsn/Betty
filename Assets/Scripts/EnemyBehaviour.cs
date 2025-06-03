@@ -110,7 +110,7 @@ public class EnemyBehaviour : MonoBehaviour
 			PlayerMovement playerMovementScript = collision.gameObject.GetComponent<PlayerMovement>();
 			knockBackScript = collision.gameObject.GetComponent<KnockBack>();
 			//knockback
-			if (isMovingRight)//wennlinks vom gegner mach das)
+			if (isMovingRight)//wennlinks vom gegner mach das
 			{
 				knockBackScript.CallKnockback(Vector2.right, Vector2.up, playerMovementScript.horizontalInput);
 			}
