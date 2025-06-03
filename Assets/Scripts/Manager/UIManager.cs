@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using System.Collections;
+using System;
 
 public class UIManager : MonoBehaviour
 {
@@ -12,10 +13,13 @@ public class UIManager : MonoBehaviour
     [SerializeField]
     private BatterySO batterySO;
 
+    [SerializeField]
+    private GameObject chargeStationPanel;
 
-	private void Awake()
-	{
-		if (Instance == null)
+
+    private void Awake()
+    {
+        if (Instance == null)
         {
             Instance = this;
             DontDestroyOnLoad(gameObject);
@@ -24,7 +28,7 @@ public class UIManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
-	}
+    }
 
     private void Start()
     {
@@ -36,5 +40,15 @@ public class UIManager : MonoBehaviour
     {
         batteryChargeSlider.maxValue = batterySO.maxEnergy;
         batteryChargeSlider.value = batterySO.energy;
+    }
+
+    public void ShowChargeStationUI()
+    {
+        chargeStationPanel.SetActive(true);
+    }
+
+    public void HideChargeStationUI()
+    {
+        chargeStationPanel.SetActive(false);
     }
 }

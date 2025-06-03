@@ -1,16 +1,29 @@
 using UnityEngine;
+using System;
 
 public class ChargingStation : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    [SerializeField]
+    private BatterySO batterySO;
+    public static event Action<bool, GameObject> OnPlayerInChargingStation;
+    
     void Start()
     {
         
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        
+        if (other.gameObject.CompareTag("Player"))
+        {
+             Debug.Log("CollisionChargeStation");
+             OnPlayerInChargingStation?.Invoke(true, other.gameObject);
+            UIManager.Instance.ShowChargeStationUI();
+        }
+    }
+    private void OnTriggerExit2D(Collider2D other) 
+    {
+        OnPlayerInChargingStation?.Invoke(false, other.gameObject);
+        UIManager.Instance.HideChargeStationUI();
     }
 }
