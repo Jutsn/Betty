@@ -53,8 +53,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 5
-  jumpPower: 7
-  wallCheckDistance: 4
+  jumpPower: 6
   horizontalInput: 0
   playerHeight: 1
   groundLayer:
