@@ -6,14 +6,18 @@ public class PlayerMovement : MonoBehaviour
     
     [SerializeField]float moveSpeed = 5f;
     [SerializeField] float jumpPower = 4f;
-	
+    [SerializeField] float wallCheckDistance = 0.8f;
+	public float horizontalInput; //public lassen, wird benutzt
+
+	[SerializeField] float playerHeight = 0.8f;
+
 	bool isFacingRight;
 	bool isJumping = false;
-	public bool isPushed;
-	public float horizontalInput;
+    private bool grounded;
 
     Rigidbody2D rb;
     private KnockBack knockback;
+    public LayerMask groundLayer;
 
 	void Start()
     {
@@ -24,7 +28,13 @@ public class PlayerMovement : MonoBehaviour
         
     void Update()
     {
-        GetMoveInput();
+        grounded = Physics2D.Raycast(transform.position, Vector2.down, playerHeight/2 + 0.2f, groundLayer);
+        if (grounded)
+        {
+			isJumping = false;
+		}
+		
+		GetMoveInput();
 
         if (!knockback.isBeingKnockedBack)
         {
@@ -35,14 +45,11 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (!knockback.isBeingKnockedBack)
+		if (!knockback.isBeingKnockedBack)
         {
             Move();
         }
-
     }
-
-
 
     void FlipSprite()
     {
@@ -55,15 +62,10 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        isJumping = false;
-    }
-
     void Move()
     {
-        rb.linearVelocity = new Vector2(horizontalInput * moveSpeed, rb.linearVelocity.y);
-    }
+	    rb.linearVelocity = new Vector2(horizontalInput * moveSpeed, rb.linearVelocity.y);
+	}
 
     void GetMoveInput()
     {
@@ -78,6 +80,4 @@ public class PlayerMovement : MonoBehaviour
 			isJumping = true;
 		}
 	}
-
-	
 }
