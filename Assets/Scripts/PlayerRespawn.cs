@@ -6,11 +6,13 @@ public class PlayerRespawn : MonoBehaviour
     private Transform currentCheckpoint;
     [SerializeField]
     private Rigidbody2D rb;
+    private EnemyBehaviour[] enemyBehaviours;
 
-    private void Awake()
+    private void Start()
     {
-        rb = GetComponent<Rigidbody2D>();      
-    }
+        rb = GetComponent<Rigidbody2D>();
+        enemyBehaviours = Object.FindObjectsByType<EnemyBehaviour>(FindObjectsSortMode.None);
+	}
     void Update()
     {
         // Check for respawn input (e.g., pressing the R key)
@@ -38,6 +40,19 @@ public class PlayerRespawn : MonoBehaviour
             Debug.LogWarning("No checkpoint set for respawn.");
         }
     }
+
+	private void OnTriggerEnter2D(Collider2D collision)
+	{
+        if (collision.gameObject.CompareTag("Respawn"))
+        {
+            Respawn();
+
+            for (int i = 0; i < enemyBehaviours.Length; i++)
+            {
+                enemyBehaviours[i].RespawnEnemy();
+            }
+        }
+	}
 
 
 }

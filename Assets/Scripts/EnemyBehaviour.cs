@@ -22,6 +22,8 @@ public class EnemyBehaviour : MonoBehaviour
 	public LayerMask groundLayer;
 	public LayerMask playerLayer;
 	public RaycastHit2D playerInfo;
+
+	private Vector2 startPos;
 	
 	Rigidbody2D rb;
 
@@ -31,6 +33,7 @@ public class EnemyBehaviour : MonoBehaviour
 	void Start()
 	{
 		rb = GetComponent<Rigidbody2D>();
+		startPos = transform.position;
 		
 		walkSpeed = enemyMoveSpeed;
 		chargeSpeed = 2 * enemyMoveSpeed;
@@ -165,8 +168,14 @@ public class EnemyBehaviour : MonoBehaviour
 		isDeactivated = true;
 	}
 
-	public void ReActivateEnemy() // Beim Levelzurücksetzen callen
+	public void ReActivateEnemy() // evtl. Enemy reactivating after Time
 	{
+		isDeactivated = false;
+	}
+
+	public void RespawnEnemy() // Beim Levelzurücksetzen callen
+	{
+		transform.position = startPos;
 		isDeactivated = false;
 	}
 }
