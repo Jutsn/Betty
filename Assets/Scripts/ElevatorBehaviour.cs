@@ -14,7 +14,6 @@ public class ElevatorBehaviour : MonoBehaviour
 	private Vector2 targetPosition;
 	private bool moving = false;
 	private bool waiting = false;
-	private float waitTimer = 0f;
 
 	private Rigidbody2D rb;
 
@@ -87,7 +86,6 @@ public class ElevatorBehaviour : MonoBehaviour
 	{
 		if (collision.collider.CompareTag("Player"))
 		{
-
 			collision.transform.SetParent(null);
 		}
 	}
