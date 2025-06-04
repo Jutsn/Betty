@@ -308,6 +308,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1311108083652646013, guid: 5d56bb5faf3c1394ea9d630d29dc1d08, type: 3}
+      propertyPath: m_ApplyToSortingLayers.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1311108083652646013, guid: 5d56bb5faf3c1394ea9d630d29dc1d08, type: 3}
+      propertyPath: 'm_ApplyToSortingLayers.Array.data[5]'
+      value: 1940751641
+      objectReference: {fileID: 0}
     - target: {fileID: 3171110015977417083, guid: 5d56bb5faf3c1394ea9d630d29dc1d08, type: 3}
       propertyPath: m_Name
       value: Player
@@ -351,6 +359,18 @@ PrefabInstance:
     - target: {fileID: 3413295258356709689, guid: 5d56bb5faf3c1394ea9d630d29dc1d08, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4084178585922602136, guid: 5d56bb5faf3c1394ea9d630d29dc1d08, type: 3}
+      propertyPath: m_GravityScale
+      value: 1.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 8561545132179669862, guid: 5d56bb5faf3c1394ea9d630d29dc1d08, type: 3}
+      propertyPath: m_ApplyToSortingLayers.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8561545132179669862, guid: 5d56bb5faf3c1394ea9d630d29dc1d08, type: 3}
+      propertyPath: 'm_ApplyToSortingLayers.Array.data[4]'
+      value: 1940751641
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
