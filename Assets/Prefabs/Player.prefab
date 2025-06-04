@@ -138,7 +138,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 5
-  jumpPower: 6
+  jumpPower: 6.5
   horizontalInput: 0
   playerHeight: 1
   groundLayer:
