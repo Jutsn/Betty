@@ -13,5 +13,7 @@ MonoBehaviour:
   m_Name: PlayerBattery
   m_EditorClassIdentifier: 
   maxEnergy: 100
-  energy: 27
-  passiveEnergyConsumption: 0.5
+  energy: 562
+  lightOnEnergyConsumption: 6
+  passiveEnergyConsumption: 2
+  shootEnergyConsumption: 15

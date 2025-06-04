@@ -13,8 +13,6 @@ public class PlayerLighting : MonoBehaviour
     [SerializeField]
     private float shootCooldown = 5f;
     [SerializeField]
-    private float shootCost = 10f;
-    [SerializeField]
     private Material unlitMaterial;
     [SerializeField]
     private Material litMaterial;
@@ -23,16 +21,18 @@ public class PlayerLighting : MonoBehaviour
 
     [SerializeField]
     private bool isInChargingStation;   
-    public bool lightActive = true;
+    public bool lightActive = false;
     private bool canShoot = true;
+
+    GameObject passiveLight;
     
 
-    private void Awake() {
-        lightActive = true;
-    }
+    
     public void Start()
     {
-        StartCoroutine(LoseEnergy());
+        passiveLight = GameObject.Find("Light 2D Passiv");
+		FlashLightOff();
+		StartCoroutine(LoseEnergy());
     }
 
     private void OnEnable() 
@@ -54,17 +54,14 @@ public class PlayerLighting : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.F) )
             if(lightActive)
             {
-                targetSprite.material = litMaterial;
-                playerLight.enabled = false;
-                lightActive = false;
-            }
-            else{
-                targetSprite.material = unlitMaterial;
-                playerLight.enabled = true;
-                lightActive = true;
-            }
+                FlashLightOff();
+			}
+            else
+            {
+                FlashLightOn();
+			}
 
-        if(Input.GetKeyDown(KeyCode.Q) && canShoot && batterySO.energy > shootCost)
+        if(Input.GetKeyDown(KeyCode.Q) && canShoot && batterySO.energy > batterySO.shootEnergyConsumption)
         {
             Shoot();
             StartCoroutine(ShotCooldown());   
@@ -90,12 +87,25 @@ public class PlayerLighting : MonoBehaviour
         }
     }
 
-
+    private void FlashLightOff()
+    {
+		targetSprite.material = litMaterial;
+		playerLight.enabled = false;
+		passiveLight.gameObject.SetActive(true);
+		lightActive = false;
+	}
+    void FlashLightOn()
+    {
+		targetSprite.material = unlitMaterial;
+		playerLight.enabled = true;
+		passiveLight.gameObject.SetActive(false);
+		lightActive = true;
+	}
     
 
     public void Shoot()
     {
-            batterySO.energy -= shootCost;
+            batterySO.energy -= batterySO.shootEnergyConsumption;
             UIManager.Instance.UpdateBatteryChargeUI();
             GameObject lightOrb =  LightOrbPool.Instance.GetPooledLightOrb();
             if (lightOrb != null)
@@ -129,9 +139,14 @@ public class PlayerLighting : MonoBehaviour
         {
             if (lightActive && batterySO.energy > 0)
             {
-                batterySO.energy -= batterySO.passiveEnergyConsumption;
+                batterySO.energy -= batterySO.lightOnEnergyConsumption;
                 UIManager.Instance.UpdateBatteryChargeUI();
             }
+            else if (!lightActive && batterySO.energy > 0)
+            {
+				batterySO.energy -= batterySO.passiveEnergyConsumption;
+				UIManager.Instance.UpdateBatteryChargeUI();
+			}
 
             if (batterySO.energy <= 0)
             {
