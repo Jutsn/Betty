@@ -1,85 +1,138 @@
 using System.Collections;
 using UnityEngine;
 
-public class GridMovement : MonoBehaviour {
-  // Allows you to hold down a key for movement.
-  [SerializeField] private bool isRepeatedMovement = false;
-  // Time in seconds to move between one grid position and the next.
-  [SerializeField] private float moveDuration = 0.1f;
-  // The size of the grid
-  [SerializeField] private float gridSize = 1f;
+public class GridMovement : MonoBehaviour
+{
+    [SerializeField] private bool isRepeatedMovement = false;
+    [SerializeField] private float moveDuration = 0.1f;
+    [SerializeField] private float gridSize = 1f;
 
-  private bool isMoving = false;
+    private bool isMoving = false;
 
-  // Update is called once per frame
-  private void Update() {
-    // Only process on move at a time.
-    if (!isMoving)
+    private void Update()
     {
-      // Accomodate two different types of moving.
-      System.Func<KeyCode, bool> inputFunction;
-      if (isRepeatedMovement)
-      {
-        // GetKey repeatedly fires.
-        inputFunction = Input.GetKey;
-      }
-      else
-      {
-        // GetKeyDown fires once per keypress
-        inputFunction = Input.GetKeyDown;
-      }
+        if (isMoving) return;
 
-      Vector2 direction = Vector2.zero;
-      if (inputFunction(KeyCode.W)) direction = Vector2.up;
-      else if (inputFunction(KeyCode.S)) direction = Vector2.down;
-      else if (inputFunction(KeyCode.A)) direction = Vector2.left;
-      else if (inputFunction(KeyCode.D)) direction = Vector2.right;
-    
-      if (direction != Vector2.zero) {
-            Vector2 targetPos = (Vector2)transform.position + direction * gridSize;
-            Collider2D hit = Physics2D.OverlapCircle(targetPos, 0.1f);
+        System.Func<KeyCode, bool> inputFunction = isRepeatedMovement ? Input.GetKey : Input.GetKeyDown;
 
-        if (hit != null && hit.TryGetComponent<PushableBlock>(out var block))
+        if (inputFunction(KeyCode.W))
         {
-          Vector2 blockTarget = targetPos + direction * gridSize;
-          Collider2D blockHit = Physics2D.OverlapCircle(blockTarget, 0.1f);
-        
-        if (blockHit == null) {
-          StartCoroutine(block.Move(direction));
-          StartCoroutine(Move(direction));
-        } else {
-          // Can't move block → do nothing
+            TryMove(Vector2.up);
         }
-      } else if (hit == null) {
-        StartCoroutine(Move(direction));
-      }
-    }
-  
-    }
-  }
-
-  // Smooth movement between grid positions.
-  private IEnumerator Move(Vector2 direction) {
-    // Record that we're moving so we don't accept more input.
-    isMoving = true;
-
-    // Make a note of where we are and where we are going.
-    Vector2 startPosition = transform.position;
-    Vector2 endPosition = startPosition + (direction * gridSize);
-
-    // Smoothly move in the desired direction taking the required time.
-    float elapsedTime = 0;
-    while (elapsedTime < moveDuration) {
-      elapsedTime += Time.deltaTime;
-      float percent = elapsedTime / moveDuration;
-      transform.position = Vector2.Lerp(startPosition, endPosition, percent);
-      yield return null;
+        else if (inputFunction(KeyCode.S))
+        {
+            TryMove(Vector2.down);
+        }
+        else if (inputFunction(KeyCode.A))
+        {
+            TryMove(Vector2.left);
+        }
+        else if (inputFunction(KeyCode.D))
+        {
+            TryMove(Vector2.right);
+        }
     }
 
-    // Make sure we end up exactly where we want.
-    transform.position = endPosition;
+    private void TryMove(Vector2 dir)
+    {
+        StartCoroutine(HandleMove(dir));
+    }
 
-    // We're no longer moving so we can accept another move input.
-    isMoving = false;
-  }
+    private IEnumerator HandleMove(Vector2 dir)
+    {
+        Vector2 targetPos = (Vector2)transform.position + dir * gridSize;
+
+        if (IsPositionBlocked(targetPos))
+        {
+            Debug.Log("Bewegung blockiert: Loch im Weg");
+            yield break; // Bewegung abbrechen
+        }
+
+        isMoving = true;
+
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, dir, gridSize);
+        if (hit.collider != null)
+        {
+            PushableBlock block = hit.collider.GetComponent<PushableBlock>();
+            if (block != null && block.CanMove(dir) && block.isPushable)
+            {
+                yield return StartCoroutine(block.Move(dir));
+                yield return StartCoroutine(CheckBlockHoleAfterMove(block));
+                isMoving = false;
+                yield break; // Spieler bewegt sich nicht selbst, wenn Block bewegt wurde
+            }
+        }
+
+        // Kein Block: Spieler bewegt sich normal
+        yield return StartCoroutine(Move(dir));
+        isMoving = false;
+    }
+
+    private bool IsPositionBlocked(Vector2 targetPos)
+    {
+        Collider2D[] hits = Physics2D.OverlapCircleAll(targetPos, 0.1f);
+        foreach (var hit in hits)
+        {
+            if (hit.CompareTag("Hole"))
+            {
+                Hole hole = hit.GetComponent<Hole>();
+                if (hole != null && !hole.IsFilled)
+                {
+                    return true; // Blockiere Bewegung, wenn Loch offen ist
+                }
+            }
+        }
+        return false;
+    }
+
+    private IEnumerator Move(Vector2 direction)
+    {
+        Vector2 start = transform.position;
+        Vector2 end = start + direction * gridSize;
+
+        float elapsed = 0f;
+        while (elapsed < moveDuration)
+        {
+            elapsed += Time.deltaTime;
+            float t = Mathf.Clamp01(elapsed / moveDuration);
+            transform.position = Vector2.Lerp(start, end, t);
+            yield return null;
+        }
+
+        transform.position = end;
+    }
+
+    private IEnumerator CheckBlockHoleAfterMove(PushableBlock block)
+    {
+        yield return new WaitForSeconds(block.moveDuration + 0.05f);
+        Debug.Log("Checking if block fell into a hole...");
+
+        Collider2D[] hits = Physics2D.OverlapCircleAll(block.transform.position, 0.45f);
+
+        foreach (Collider2D hit in hits)
+        {
+            if (hit.CompareTag("Hole"))
+            {
+                Hole holeScript = hit.GetComponent<Hole>();
+                if (holeScript != null && !holeScript.IsFilled)
+                {
+                    holeScript.FillHole();
+                    Debug.Log("Block fell into a hole and filled it.");
+
+                    // Collider vom Block ausschalten
+                    Collider2D blockCollider = block.GetComponent<Collider2D>();
+                    if (blockCollider != null)
+                        blockCollider.enabled = false;
+
+                    // Block nicht mehr schiebbar machen
+                    block.isPushable = false;
+
+                    // Optional: Block unsichtbar machen oder deaktivieren
+                    // block.gameObject.SetActive(false);
+
+                    break;
+                }
+            }
+        }
+    }
 }

@@ -31,6 +31,7 @@ public class PlayerRespawn : MonoBehaviour
     {
         if (currentCheckpoint != null)
         {
+            GameManager.Instance.gameOver = false;
             rb.linearVelocity = Vector2.zero;
             rb.position = currentCheckpoint.position;
             Debug.Log("Player respawned at checkpoint: " + currentCheckpoint.name);

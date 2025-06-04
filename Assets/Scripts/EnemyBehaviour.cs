@@ -22,6 +22,7 @@ public class EnemyBehaviour : MonoBehaviour
 	public LayerMask groundLayer;
 	public LayerMask playerLayer;
 	public RaycastHit2D playerInfo;
+	public Animator anim;
 
 	private Vector2 startPos;
 	
@@ -33,6 +34,7 @@ public class EnemyBehaviour : MonoBehaviour
 	void Start()
 	{
 		rb = GetComponent<Rigidbody2D>();
+		anim = GetComponentInChildren<Animator>();
 		startPos = transform.position;
 		
 		walkSpeed = enemyMoveSpeed;
@@ -166,6 +168,7 @@ public class EnemyBehaviour : MonoBehaviour
 	public void DeactivateEnemy()
 	{
 		isDeactivated = true;
+		anim.SetBool("isShutDown", true);
 	}
 
 	public void ReActivateEnemy() // evtl. Enemy reactivating after Time
@@ -173,9 +176,10 @@ public class EnemyBehaviour : MonoBehaviour
 		isDeactivated = false;
 	}
 
-	public void RespawnEnemy() // Beim Levelzurücksetzen callen
+	public void RespawnEnemy() // Beim Levelzurï¿½cksetzen callen
 	{
 		transform.position = startPos;
 		isDeactivated = false;
+		anim.SetBool("isShutDown", false);
 	}
 }
