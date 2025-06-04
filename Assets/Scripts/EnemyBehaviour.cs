@@ -11,6 +11,7 @@ public class EnemyBehaviour : MonoBehaviour
 	[SerializeField] float waitTime = 2f;
 	[SerializeField] private float playerCheckDistance = 100f;
 	[SerializeField] private float groundCheckDistance = 1f;
+	[SerializeField] private float ceilingCheckDistance = 1f;
 	[SerializeField] private float batteryDamageThroughEnemy;
 
 	private bool isMovingRight = false;
@@ -49,7 +50,8 @@ public class EnemyBehaviour : MonoBehaviour
 		if (!isDeactivated)
 		{
 			RaycastHit2D groundInfo = Physics2D.Raycast(groundCheckSpot.position, Vector2.down, groundCheckDistance, groundLayer);
-			if (groundInfo.collider == null)
+			RaycastHit2D ceilingInfo = Physics2D.Raycast(groundCheckSpot.position, Vector2.up, ceilingCheckDistance, groundLayer);
+			if (groundInfo.collider == null || ceilingInfo.collider != null)
 			{
 				isWaiting = true;
 			}
@@ -190,10 +192,10 @@ public class EnemyBehaviour : MonoBehaviour
 		yield return null;
 	}
 
-	public void ReActivateEnemy() // evtl. Enemy reactivating after Time
-	{
-		isDeactivated = false;
-	}
+	//public void ReActivateEnemy() // evtl. Enemy reactivating after Time
+	//{
+	//	isDeactivated = false;
+	//}
 
 	public void RespawnEnemy() // Beim Levelzur�cksetzen callen
 	{
