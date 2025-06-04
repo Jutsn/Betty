@@ -31,6 +31,7 @@ public class PlayerLighting : MonoBehaviour
     public void Start()
     {
         passiveLight = GameObject.Find("Light 2D Passiv");
+        batterySO.energy = batterySO.maxEnergy;
 		FlashLightOff();
 		StartCoroutine(LoseEnergy());
     }
@@ -151,6 +152,7 @@ public class PlayerLighting : MonoBehaviour
             if (batterySO.energy <= 0)
             {
                 batterySO.energy = 0;
+                FlashLightOff();
                 GameManager.Instance.gameOver = true;
             }
 
