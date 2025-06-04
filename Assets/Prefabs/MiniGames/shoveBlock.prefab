@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3630831926323263751}
   - component: {fileID: 2295423351848187369}
   - component: {fileID: 5815366411271742176}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: shoveBlock
   m_TagString: Untagged
   m_Icon: {fileID: 0}

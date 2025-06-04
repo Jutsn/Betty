@@ -7,6 +7,7 @@ TagManager:
   - ChargeStation
   - LightOrb
   - Enemy
+  - Hole
   layers:
   - Default
   - TransparentFX
@@ -17,8 +18,8 @@ TagManager:
   - LightOrb
   - playerLayer
   - groundLayer
-  - 
-  - 
+  - HoleLayer
+  - PushableBlockLayer
   - 
   - 
   - 
@@ -55,6 +56,9 @@ TagManager:
     locked: 0
   - name: Foreground
     uniqueID: 2985135779
+    locked: 0
+  - name: Enemy
+    uniqueID: 1940751641
     locked: 0
   m_RenderingLayers:
   - Default
