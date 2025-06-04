@@ -1,4 +1,6 @@
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
+using System.Collections;
 
 public class EnemyBehaviour : MonoBehaviour
 {
@@ -23,6 +25,7 @@ public class EnemyBehaviour : MonoBehaviour
 	public LayerMask playerLayer;
 	public RaycastHit2D playerInfo;
 	public Animator anim;
+	public Light2D light2D;
 
 	private Vector2 startPos;
 	
@@ -35,6 +38,7 @@ public class EnemyBehaviour : MonoBehaviour
 	{
 		rb = GetComponent<Rigidbody2D>();
 		anim = GetComponentInChildren<Animator>();
+		light2D = GetComponent<Light2D>();
 		startPos = transform.position;
 		
 		walkSpeed = enemyMoveSpeed;
@@ -169,6 +173,21 @@ public class EnemyBehaviour : MonoBehaviour
 	{
 		isDeactivated = true;
 		anim.SetBool("isShutDown", true);
+		StartCoroutine(BlinkingLight());
+	}
+
+	IEnumerator BlinkingLight()
+	{
+		float blinkInterval = 0.6f;
+		yield return new WaitForSeconds(1f); // Initial delay before blinking starts
+
+		while (isDeactivated)
+		{
+			light2D.enabled = !light2D.enabled;
+			yield return new WaitForSeconds(blinkInterval);
+		}
+
+		yield return null;
 	}
 
 	public void ReActivateEnemy() // evtl. Enemy reactivating after Time
