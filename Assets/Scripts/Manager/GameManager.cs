@@ -8,10 +8,9 @@ public class GameManager : MonoBehaviour
 	public bool gameOver;
 	[SerializeField]
 	BatterySO batterySO;
-	[SerializeField]
 
 	private PlayerRespawn playerRespawnScript;
-	[SerializeField]
+	
 
 	private PlayerMovement playerMovementScript;
 

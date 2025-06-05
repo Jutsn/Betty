@@ -68,31 +68,27 @@ public class PlayerMovement : MonoBehaviour
 
     void FlipSprite()
     {
-        if (isFacingRight && horizontalInput < 0)
-        {
-            spriteRenderer.flipX = false;
-        }
-        else if (!isFacingRight && horizontalInput > 0)
-        {
-            spriteRenderer.flipX = true;
-        }
-    }
+		if (isFacingRight && horizontalInput < 0 || !isFacingRight && horizontalInput > 0)
+		{
+			isFacingRight = !isFacingRight;
+			Vector2 ls = transform.localScale;
+			ls.x *= -1f;
+			transform.localScale = ls;
+		}
+		
+	}
     void FlipSpriteBasedOnMouse()
     {
         Vector2 mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
-        if (mouseWorldPos.x < transform.position.x && spriteRenderer.flipX)
+        if (mouseWorldPos.x < transform.position.x && isFacingRight || mouseWorldPos.x > transform.position.x && !isFacingRight)
         {
-            // Maus links vom Spieler
-            spriteRenderer.flipX = false;
-            isFacingRight = false;
-        }
-        else if (mouseWorldPos.x > transform.position.x && !spriteRenderer.flipX)
-        {
-            // Maus rechts vom Spieler
-            isFacingRight = true;
-            spriteRenderer.flipX = true;
-        }
+			isFacingRight = !isFacingRight;
+			Vector2 ls = transform.localScale;
+			ls.x *= -1f;
+			transform.localScale = ls;
+		}
+        
     }
 
 
