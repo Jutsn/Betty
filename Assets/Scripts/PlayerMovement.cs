@@ -16,7 +16,7 @@ public class PlayerMovement : MonoBehaviour
     private bool grounded;
 
     private Rigidbody2D rb;
-    private Animator animator;
+    public Animator animator;
     private KnockBack knockback;
     public LayerMask groundLayer;
 
@@ -88,7 +88,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void DeathAnimation()
     {
-        ///Hier Death Animation
+        animator.SetBool("isShutDown", true);
     }
 
     void GetMoveInput()
