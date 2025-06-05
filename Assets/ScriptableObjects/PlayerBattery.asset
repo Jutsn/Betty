@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: PlayerBattery
   m_EditorClassIdentifier: 
   maxEnergy: 120
-  energy: 95
+  energy: 0
   maxEnergyUpgradeFromStation: 5
   lightOnEnergyConsumption: 3
   passiveEnergyConsumption: 1

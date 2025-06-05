@@ -149,6 +149,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameOver: 0
+  batterySO: {fileID: 11400000, guid: 414ee0b95db65ef4381599f917b654ba, type: 2}
 --- !u!4 &46683034
 Transform:
   m_ObjectHideFlags: 0
@@ -579,6 +580,7 @@ MonoBehaviour:
   batteryChargeSlider: {fileID: 564209629}
   batterySO: {fileID: 11400000, guid: 414ee0b95db65ef4381599f917b654ba, type: 2}
   chargeStationPanel: {fileID: 732247647}
+  consolePanel: {fileID: 0}
 --- !u!1 &564209627
 GameObject:
   m_ObjectHideFlags: 0
