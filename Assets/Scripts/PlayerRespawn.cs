@@ -8,12 +8,14 @@ public class PlayerRespawn : MonoBehaviour
     [SerializeField]
     private Rigidbody2D rb;
     private EnemyBehaviour[] enemyBehaviours;
+    private Animator anim;
 
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        anim = GetComponentInChildren<Animator>();
         enemyBehaviours = Object.FindObjectsByType<EnemyBehaviour>(FindObjectsSortMode.None);
-	}
+    }
     void Update()
     {
         // Check for respawn input (e.g., pressing the R key)
@@ -33,6 +35,7 @@ public class PlayerRespawn : MonoBehaviour
         if (currentCheckpoint != null)
         {
             GameManager.Instance.gameOver = false;
+            anim.SetBool("isShutDown", false);
             rb.linearVelocity = Vector2.zero;
             rb.position = currentCheckpoint.position;
             Debug.Log("Player respawned at checkpoint: " + currentCheckpoint.name);
