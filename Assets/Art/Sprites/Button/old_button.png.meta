@@ -1,31 +1,16 @@
 fileFormatVersion: 2
-guid: 96b4dd3113bb30a4a97c25c73a5637f1
+guid: 663f298dbde768e498b39d1b68238e27
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 186124267280566037
-    second: enemyShutDowm_0
+      213: -1529134509753337813
+    second: old_button_0
   - first:
-      213: 7017755084952614489
-    second: enemyShutDowm_1
+      213: -1491167852540030162
+    second: old_button_1
   - first:
-      213: -7053843460198775947
-    second: enemyShutDowm_2
-  - first:
-      213: -6455853925497413452
-    second: enemyShutDowm_3
-  - first:
-      213: 1089040556379307395
-    second: enemyShutDowm_4
-  - first:
-      213: 4823557701070939362
-    second: enemyShutDowm_5
-  - first:
-      213: 3233123174539040599
-    second: enemyShutDowm_6
-  - first:
-      213: 1690264351406971731
-    second: enemyShutDowm_7
+      213: -3236146473055652786
+    second: old_button_2
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -72,7 +57,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 32
+  spritePixelsToUnits: 29
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -122,7 +107,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -135,7 +120,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -147,13 +132,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: enemyShutDowm_0
+      name: old_button_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 48
-        height: 48
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -162,20 +147,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 5178653f80f359200800000000000000
-      internalID: 186124267280566037
+      spriteID: b287c5cd34c67cae0800000000000000
+      internalID: -1529134509753337813
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: enemyShutDowm_1
+      name: old_button_1
       rect:
         serializedVersion: 2
-        x: 48
+        x: 32
         y: 0
-        width: 48
-        height: 48
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -184,20 +169,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 956ba4f6113146160800000000000000
-      internalID: 7017755084952614489
+      spriteID: e239ed81dbe4e4be0800000000000000
+      internalID: -1491167852540030162
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: enemyShutDowm_2
+      name: old_button_2
       rect:
         serializedVersion: 2
-        x: 96
+        x: 64
         y: 0
-        width: 48
-        height: 48
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -206,118 +191,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 573c3adeeb6bb1e90800000000000000
-      internalID: -7053843460198775947
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: enemyShutDowm_3
-      rect:
-        serializedVersion: 2
-        x: 144
-        y: 0
-        width: 48
-        height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 4b06ae03f033866a0800000000000000
-      internalID: -6455853925497413452
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: enemyShutDowm_4
-      rect:
-        serializedVersion: 2
-        x: 192
-        y: 0
-        width: 48
-        height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 38d7bf4bd9c0d1f00800000000000000
-      internalID: 1089040556379307395
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: enemyShutDowm_5
-      rect:
-        serializedVersion: 2
-        x: 240
-        y: 0
-        width: 48
-        height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 2e4eeed3c28b0f240800000000000000
-      internalID: 4823557701070939362
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: enemyShutDowm_6
-      rect:
-        serializedVersion: 2
-        x: 288
-        y: 0
-        width: 48
-        height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 7579b7db56c5edc20800000000000000
-      internalID: 3233123174539040599
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: enemyShutDowm_7
-      rect:
-        serializedVersion: 2
-        x: 336
-        y: 0
-        width: 48
-        height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 35b5e12e876057710800000000000000
-      internalID: 1690264351406971731
+      spriteID: e447268bde5e613d0800000000000000
+      internalID: -3236146473055652786
       vertices: []
       indices: 
       edges: []
@@ -326,7 +201,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 7e51292878173fa44b394e28ea39144a
+    spriteID: 6d9c69cf17dc9ba42b0f00027a2c146c
     internalID: 0
     vertices: []
     indices: 
@@ -336,14 +211,9 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      enemyShutDowm_0: 186124267280566037
-      enemyShutDowm_1: 7017755084952614489
-      enemyShutDowm_2: -7053843460198775947
-      enemyShutDowm_3: -6455853925497413452
-      enemyShutDowm_4: 1089040556379307395
-      enemyShutDowm_5: 4823557701070939362
-      enemyShutDowm_6: 3233123174539040599
-      enemyShutDowm_7: 1690264351406971731
+      old_button_0: -1529134509753337813
+      old_button_1: -1491167852540030162
+      old_button_2: -3236146473055652786
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

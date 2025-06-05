@@ -32,7 +32,11 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         if (GameManager.Instance.gameOver)
-            return;
+        {
+            rb.linearVelocity = Vector2.zero;
+			return;
+		}
+            
 
         grounded = Physics2D.Raycast(transform.position, Vector2.down, playerHeight/2 + 0.2f, groundLayer);
         if (grounded)
@@ -52,7 +56,8 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-		if (!knockback.isBeingKnockedBack)
+		
+        if (!knockback.isBeingKnockedBack && !GameManager.Instance.gameOver)
         {
             Move();
         }

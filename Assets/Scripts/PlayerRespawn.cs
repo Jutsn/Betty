@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class PlayerRespawn : MonoBehaviour
@@ -50,14 +51,21 @@ public class PlayerRespawn : MonoBehaviour
 	{
         if (collision.gameObject.CompareTag("Respawn"))
         {
-            Respawn();
-
-            for (int i = 0; i < enemyBehaviours.Length; i++)
-            {
-                enemyBehaviours[i].RespawnEnemy();
-            }
+            StartCoroutine(PlayDeathAnimation());
         }
 	}
 
+    IEnumerator PlayDeathAnimation()
+    {
+		GameManager.Instance.gameOver = true;
+		anim.SetBool("isShutDown", true);
+        yield return new WaitForSeconds(3f);
 
+		Respawn();
+
+		for (int i = 0; i < enemyBehaviours.Length; i++)
+		{
+			enemyBehaviours[i].RespawnEnemy();
+		}
+	}
 }
