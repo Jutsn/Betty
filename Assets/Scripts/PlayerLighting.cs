@@ -70,7 +70,9 @@ public class PlayerLighting : MonoBehaviour
 
         if (isInChargingStation && Input.GetKeyDown(KeyCode.E))
         {
-            batterySO.energy = batterySO.maxEnergy;
+
+			currentChargingStation.UpgradeMaxEnergy();
+			batterySO.energy = batterySO.maxEnergy;
             UIManager.Instance.UpdateBatteryChargeUI();
             Debug.Log("Battery recharged!");
             
@@ -152,8 +154,9 @@ public class PlayerLighting : MonoBehaviour
             if (batterySO.energy <= 0)
             {
                 batterySO.energy = 0;
-                FlashLightOff();
-                GameManager.Instance.gameOver = true;
+				UIManager.Instance.UpdateBatteryChargeUI();
+				FlashLightOff();
+                GameManager.Instance.GameOver();
             }
 
             yield return new WaitForSeconds(1f);
@@ -171,8 +174,9 @@ public class PlayerLighting : MonoBehaviour
 		if (batterySO.energy <= 0)
 		{
 			batterySO.energy = 0;
-			GameManager.Instance.gameOver = true;
 			UIManager.Instance.UpdateBatteryChargeUI();
+			FlashLightOff();
+			GameManager.Instance.GameOver();
 		}
 	}
 }

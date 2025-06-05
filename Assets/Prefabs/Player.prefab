@@ -97,8 +97,8 @@ GameObject:
   - component: {fileID: 2765145189936679077}
   - component: {fileID: 1784566925702407520}
   - component: {fileID: 3190721164722833843}
-  - component: {fileID: 4084178585922602136}
   - component: {fileID: 4215492934040753242}
+  - component: {fileID: 4084178585922602136}
   - component: {fileID: 7225222429879588142}
   m_Layer: 7
   m_Name: Player
@@ -137,6 +137,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b39b6ba8ec230a40a56e4f3c3d7cb4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  batterySO: {fileID: 11400000, guid: 414ee0b95db65ef4381599f917b654ba, type: 2}
   moveSpeed: 5
   jumpPower: 7.2
   horizontalInput: 0
@@ -228,6 +229,20 @@ MonoBehaviour:
   targetSprite: {fileID: 6488738253254908032}
   isInChargingStation: 0
   lightActive: 0
+--- !u!114 &4215492934040753242
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3171110015977417083}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 992dadb60158f3746b0cae373fff8a61, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentCheckpoint: {fileID: 0}
+  rb: {fileID: 0}
 --- !u!50 &4084178585922602136
 Rigidbody2D:
   serializedVersion: 5
@@ -255,20 +270,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
---- !u!114 &4215492934040753242
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3171110015977417083}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 992dadb60158f3746b0cae373fff8a61, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currentCheckpoint: {fileID: 0}
-  rb: {fileID: 0}
 --- !u!61 &7225222429879588142
 BoxCollider2D:
   m_ObjectHideFlags: 0

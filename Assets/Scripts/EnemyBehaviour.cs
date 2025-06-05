@@ -144,6 +144,8 @@ public class EnemyBehaviour : MonoBehaviour
 	{
 		if (collision.gameObject.CompareTag("Player"))
 		{
+			if (GameManager.Instance.gameOver)
+				return;
 			GameObject player = collision.gameObject;
 			PlayerMovement playerMovementScript = collision.gameObject.GetComponent<PlayerMovement>();
 			PlayerLighting playerLightningScript = collision.gameObject.GetComponent<PlayerLighting>();

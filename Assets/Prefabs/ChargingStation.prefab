@@ -213,3 +213,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   batterySO: {fileID: 11400000, guid: 414ee0b95db65ef4381599f917b654ba, type: 2}
   spawnPoint: {fileID: 0}
+  canUpgradeMaxEnergy: 1

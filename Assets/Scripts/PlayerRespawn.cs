@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class PlayerRespawn : MonoBehaviour
 {
+    
     [SerializeField]
     private Transform currentCheckpoint;
     [SerializeField]

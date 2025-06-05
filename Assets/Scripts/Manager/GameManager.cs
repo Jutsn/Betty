@@ -1,11 +1,17 @@
+using System.Collections;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    public static GameManager Instance { get; private set; }
+	public static GameManager Instance { get; private set; }
+
+	public bool gameOver;
+	[SerializeField]
+	BatterySO batterySO;
+	private PlayerRespawn playerRespawnScript;
+	private PlayerMovement playerMovementScript;
 
 
-    public bool gameOver;
 
 	private void Awake()
 	{
@@ -17,6 +23,23 @@ public class GameManager : MonoBehaviour
 		{
 			Destroy(gameObject);
 		}
-		
+		playerRespawnScript = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerRespawn>();
+		playerMovementScript = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>();
+	}
+	
+	public void GameOver()
+	{
+		gameOver = true;
+		playerMovementScript.DeathAnimation();
+		StartCoroutine(RespawnCoroutine());
+	}
+	IEnumerator RespawnCoroutine()
+	{
+		yield return new WaitForSeconds(2);
+		//Warte bis zum Ende der Animation
+		playerRespawnScript.Respawn();
+		batterySO.energy = batterySO.maxEnergy;
+		UIManager.Instance.UpdateBatteryChargeUI();
+		gameOver = false;
 	}
 }

@@ -4,6 +4,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     
+    [SerializeField]BatterySO batterySO;
     [SerializeField]float moveSpeed = 5f;
     [SerializeField] float jumpPower = 4f;
 	public float horizontalInput; //public lassen, wird benutzt
@@ -24,11 +25,15 @@ public class PlayerMovement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponentInChildren<Animator>();
         knockback = GetComponent<KnockBack>();
-    }
+
+	}
 
         
     void Update()
     {
+        if (GameManager.Instance.gameOver) 
+            return;
+
         grounded = Physics2D.Raycast(transform.position, Vector2.down, playerHeight/2 + 0.2f, groundLayer);
         if (grounded)
         {
@@ -42,6 +47,7 @@ public class PlayerMovement : MonoBehaviour
             Jump();
         }
         FlipSprite();
+
     }
 
     private void FixedUpdate()
@@ -78,6 +84,11 @@ public class PlayerMovement : MonoBehaviour
         {
             animator.SetBool("isMoving", false);
         }
+    }
+
+    public void DeathAnimation()
+    {
+        ///Hier Death Animation
     }
 
     void GetMoveInput()

@@ -68,7 +68,6 @@ public class ElevatorBehaviour : MonoBehaviour
 	{
 		if (collision.collider.CompareTag("Player"))
 		{
-			Debug.Log("fdfdfg");
 
 			// Prüfe, ob der Player von oben kommt
 			foreach (ContactPoint2D contact in collision.contacts)

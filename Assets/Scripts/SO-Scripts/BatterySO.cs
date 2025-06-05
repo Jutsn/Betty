@@ -6,6 +6,7 @@ public class BatterySO : ScriptableObject
 {
 	public float maxEnergy;
 	public float energy;
+	public float maxEnergyUpgradeFromStation;
 	public float lightOnEnergyConsumption;
 	public float passiveEnergyConsumption;
 	public float shootEnergyConsumption;

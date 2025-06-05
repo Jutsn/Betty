@@ -15,6 +15,8 @@ public class UIManager : MonoBehaviour
 
     [SerializeField]
     private GameObject chargeStationPanel;
+    [SerializeField]
+    private GameObject consolePanel;
 
 
     private void Awake()
@@ -50,5 +52,15 @@ public class UIManager : MonoBehaviour
     public void HideChargeStationUI()
     {
         chargeStationPanel.SetActive(false);
+    }
+
+    public void ShowConsoleUI()
+    {
+		consolePanel.SetActive(true);
+    }
+
+    public void HideConsoleUI()
+    {
+		consolePanel.SetActive(false);
     }
 }

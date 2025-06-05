@@ -6,6 +6,7 @@ public class ChargingStation : MonoBehaviour
     [SerializeField] private BatterySO batterySO;
     [SerializeField] private Transform spawnPoint;
     public static event Action<bool, GameObject, ChargingStation> OnPlayerInChargingStation;
+    public bool canUpgradeMaxEnergy = true;
 
 
     private void Awake() {
@@ -26,8 +27,21 @@ public class ChargingStation : MonoBehaviour
         UIManager.Instance.HideChargeStationUI();
     }
     
-        public void TrySetCheckpoint(GameObject player)
+    public void TrySetCheckpoint(GameObject player)
     {
         player.GetComponent<PlayerRespawn>().SetCheckpoint(spawnPoint);
+    }
+    public void UpgradeMaxEnergy()
+    {
+        if (canUpgradeMaxEnergy)
+        {
+			canUpgradeMaxEnergy = false;
+			batterySO.maxEnergy += batterySO.maxEnergyUpgradeFromStation;
+		}
+        else
+        {
+            Debug.Log("Cant upgrade max Energy anymore");
+        }
+        
     }
 }
