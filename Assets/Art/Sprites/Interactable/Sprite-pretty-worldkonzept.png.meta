@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Sprite-pretty-worldkonzept_0: -5357932771048602434
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
