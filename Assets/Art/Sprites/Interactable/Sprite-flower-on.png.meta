@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 997fef116ddba644f8f4bf3c9523614d
+guid: 1efe02feea8d2524fa27c445b02972dd
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 3058624116057554336
-    second: lampOn_0
+      213: 3751916444436914978
+    second: Sprite-flower-on_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: lampOn_0
+      name: Sprite-flower-on_0
       rect:
         serializedVersion: 2
-        x: 0
+        x: 8
         y: 0
-        width: 128
-        height: 31
+        width: 66
+        height: 142
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 0adbd03ad6a627a20800000000000000
-      internalID: 3058624116057554336
+      spriteID: 223eb91b02c711430800000000000000
+      internalID: 3751916444436914978
       vertices: []
       indices: 
       edges: []
@@ -134,8 +134,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      lampOn_0: 3058624116057554336
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

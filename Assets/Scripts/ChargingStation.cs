@@ -5,12 +5,14 @@ public class ChargingStation : MonoBehaviour
 {
     [SerializeField] private BatterySO batterySO;
     [SerializeField] private Transform spawnPoint;
+    public Animator anim;
     public static event Action<bool, GameObject, ChargingStation> OnPlayerInChargingStation;
     public bool canUpgradeMaxEnergy = true;
 
 
     private void Awake() {
         spawnPoint = GetComponentInChildren<Transform>();
+        anim = GetComponentInChildren<Animator>();
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
