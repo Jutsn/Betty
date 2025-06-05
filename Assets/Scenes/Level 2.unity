@@ -150,8 +150,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameOver: 0
   batterySO: {fileID: 11400000, guid: 414ee0b95db65ef4381599f917b654ba, type: 2}
-  playerRespawnScript: {fileID: 0}
-  playerMovementScript: {fileID: 0}
 --- !u!4 &46683034
 Transform:
   m_ObjectHideFlags: 0
@@ -1189,7 +1187,7 @@ MonoBehaviour:
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.5
   m_Color: {r: 0.21960786, g: 0.21960786, b: 0.21960786, a: 1}
-  m_Intensity: 2.8
+  m_Intensity: 0
   m_LightVolumeIntensity: 1
   m_LightVolumeEnabled: 0
   m_ApplyToSortingLayers: 00000000ade5a5b2cb5933c4ff9f6c05a38eedb11985ad73719c768c
@@ -1810,7 +1808,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 18
-      m_TileSpriteIndex: 18
+      m_TileSpriteIndex: 21
       m_TileMatrixIndex: 0
       m_TileColorIndex: 2
       m_TileObjectToInstantiateIndex: 65535
@@ -7159,14 +7157,14 @@ Tilemap:
     m_Data: {fileID: 1921504278, guid: 19a0aaa4bfb41c64089255e1f47ac9df, type: 3}
   - m_RefCount: 25
     m_Data: {fileID: 1909901028, guid: 19a0aaa4bfb41c64089255e1f47ac9df, type: 3}
-  - m_RefCount: 1
-    m_Data: {fileID: 2012957518, guid: 19a0aaa4bfb41c64089255e1f47ac9df, type: 3}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
   - m_RefCount: 6
     m_Data: {fileID: 2119301246, guid: 19a0aaa4bfb41c64089255e1f47ac9df, type: 3}
   - m_RefCount: 7
     m_Data: {fileID: 1799409123, guid: 19a0aaa4bfb41c64089255e1f47ac9df, type: 3}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
+  - m_RefCount: 1
+    m_Data: {fileID: 2012957518, guid: 19a0aaa4bfb41c64089255e1f47ac9df, type: 3}
   m_TileMatrixArray:
   - m_RefCount: 574
     m_Data:
@@ -30486,7 +30484,7 @@ Tilemap:
     m_Data: {r: 1, g: 1, b: 1, a: 1}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
-  m_Color: {r: 0.2469295, g: 0.27181435, b: 0.2924528, a: 1}
+  m_Color: {r: 0.8301887, g: 0.8301887, b: 0.8301887, a: 1}
   m_Origin: {x: -14, y: -2, z: 0}
   m_Size: {x: 74, y: 127, z: 1}
   m_TileAnchor: {x: 0.5, y: 0.5, z: 0}
