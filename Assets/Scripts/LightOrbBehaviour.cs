@@ -5,12 +5,14 @@ public class LightOrbBehaviour : MonoBehaviour
 {
     [SerializeField]
     private Rigidbody2D rb;
+    public Transform orbTransform;
+    public CameraFollow camScript;
 
     Vector2 mousePos;
 
     void Start()
     {
-        
+        orbTransform = transform;
     }
 
     // Update is called once per frame
@@ -21,13 +23,16 @@ public class LightOrbBehaviour : MonoBehaviour
 
     public void ShootLightOrb(Vector2 shootDir, float force)
     {
+        camScript = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraFollow>();
+        camScript.playerTransform = transform;
+
         rb.linearVelocity = Vector2.zero; // Vorherige Bewegung zurücksetzen
         rb.AddForce(shootDir.normalized * force, ForceMode2D.Impulse);
 
         StartCoroutine(DespawnLightOrb(3f));
     }
 
-   
+
 
     IEnumerator DespawnLightOrb(float delay)
     {
@@ -36,6 +41,7 @@ public class LightOrbBehaviour : MonoBehaviour
         rb.linearVelocity = Vector2.zero;
 
         gameObject.SetActive(false);
+        camScript.GetPlayerTransform();
     } 
     
     private void OnDisable()

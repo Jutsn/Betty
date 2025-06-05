@@ -19,12 +19,14 @@ public class PlayerMovement : MonoBehaviour
     public Animator animator;
     private KnockBack knockback;
     public LayerMask groundLayer;
+    private SpriteRenderer spriteRenderer;
 
 	void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponentInChildren<Animator>();
         knockback = GetComponent<KnockBack>();
+        spriteRenderer = GetComponentInChildren<SpriteRenderer>();
 
 	}
 
@@ -45,6 +47,7 @@ public class PlayerMovement : MonoBehaviour
 		}
 		
 		GetMoveInput();
+        FlipSpriteBasedOnMouse();
 
         if (!knockback.isBeingKnockedBack)
         {
@@ -65,14 +68,33 @@ public class PlayerMovement : MonoBehaviour
 
     void FlipSprite()
     {
-        if (isFacingRight && horizontalInput < 0 || !isFacingRight && horizontalInput > 0)
+        if (isFacingRight && horizontalInput < 0)
         {
-            isFacingRight = !isFacingRight;
-            Vector2 ls = transform.localScale;
-            ls.x *= -1f;
-            transform.localScale = ls;
+            spriteRenderer.flipX = false;
+        }
+        else if (!isFacingRight && horizontalInput > 0)
+        {
+            spriteRenderer.flipX = true;
         }
     }
+    void FlipSpriteBasedOnMouse()
+    {
+        Vector2 mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+
+        if (mouseWorldPos.x < transform.position.x && spriteRenderer.flipX)
+        {
+            // Maus links vom Spieler
+            spriteRenderer.flipX = false;
+            isFacingRight = false;
+        }
+        else if (mouseWorldPos.x > transform.position.x && !spriteRenderer.flipX)
+        {
+            // Maus rechts vom Spieler
+            isFacingRight = true;
+            spriteRenderer.flipX = true;
+        }
+    }
+
 
     void Move()
     {
