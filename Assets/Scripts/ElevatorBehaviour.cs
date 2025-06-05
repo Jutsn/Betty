@@ -33,7 +33,8 @@ public class ElevatorBehaviour : MonoBehaviour
 		rb = GetComponent<Rigidbody2D>();
 		rb.bodyType = RigidbodyType2D.Kinematic;
 		animators = GetComponentsInChildren<Animator>();
-		
+		lights = GetComponentsInChildren<Light2D>();
+
 		targetPosition = pointB.position;
 		lastPlatformPosition = transform.position;
 
@@ -119,16 +120,30 @@ public class ElevatorBehaviour : MonoBehaviour
 
 	public void ActivateElevator()
 	{
-		
 		isActivated = !isActivated;
-		animators[0].SetBool("isActivated", isActivated);
-		animators[1].SetBool("isActivated", isActivated);
-
-		for(int i = 0; i < lights.Length; i++)
+		if (animators.Length == 1)
 		{
-			lights[i].gameObject.SetActive(isActivated);
+			animators[0].SetBool("isActivated", isActivated);
 		}
-		
+		else if (animators.Length > 1)
+		{
+			animators[0].SetBool("isActivated", isActivated);
+			animators[1].SetBool("isActivated", isActivated);
+		}
+		else
+		{
+			Debug.LogWarning("No animators found on ElevatorBehaviour.");
+		}
+	StartCoroutine(ToggleLightsAfterDelay());
 
+	}
+	
+	IEnumerator ToggleLightsAfterDelay()
+	{
+		yield return new WaitForSeconds(0.4f); // Warten, um sicherzustellen, dass die Animationen fertig sind
+		for (int i = 0; i < lights.Length; i++)
+		{
+			lights[i].enabled = isActivated;
+		}
 	}
 }
