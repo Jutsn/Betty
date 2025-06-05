@@ -1,16 +1,10 @@
 fileFormatVersion: 2
-guid: a72e46fb3de51894c83ddc0f4377d543
+guid: 7a37910c0c51cef4ebfd819e7dfc8fb8
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -5791533861771406970
-    second: switch_0
-  - first:
-      213: 1971089474277950741
-    second: switch_1
-  - first:
-      213: 8325349549175250961
-    second: switch_2
+      213: 8337236968393117336
+    second: robot_back_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -57,7 +51,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 32
+  spritePixelsToUnits: 48
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -106,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: switch_0
+      name: robot_back_0
       rect:
         serializedVersion: 2
-        x: 0
+        x: 3
         y: 0
-        width: 48
-        height: 48
+        width: 42
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -121,52 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 681187833a650afa0800000000000000
-      internalID: -5791533861771406970
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: switch_1
-      rect:
-        serializedVersion: 2
-        x: 48
-        y: 0
-        width: 48
-        height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 51549defe67ba5b10800000000000000
-      internalID: 1971089474277950741
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: switch_2
-      rect:
-        serializedVersion: 2
-        x: 96
-        y: 0
-        width: 48
-        height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 110ac8d2e45998370800000000000000
-      internalID: 8325349549175250961
+      spriteID: 89e8355a9d0d3b370800000000000000
+      internalID: 8337236968393117336
       vertices: []
       indices: 
       edges: []
@@ -175,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 694284dac60d24b419c0432fc024c3ed
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -185,9 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      switch_0: -5791533861771406970
-      switch_1: 1971089474277950741
-      switch_2: 8325349549175250961
+      robot_back_0: 8337236968393117336
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

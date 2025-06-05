@@ -6,8 +6,17 @@ public class GridMovement : MonoBehaviour
     [SerializeField] private bool isRepeatedMovement = false;
     [SerializeField] private float moveDuration = 0.1f;
     [SerializeField] private float gridSize = 1f;
+    [SerializeField] Sprite topsprite;
+    [SerializeField] Sprite bottomsprite;
+    [SerializeField] private Sprite leftsprite;
+
+
+    private SpriteRenderer spriteRenderer;
 
     private bool isMoving = false;
+    private void Awake() {
+        spriteRenderer = GetComponentInChildren<SpriteRenderer>();
+    }
 
     private void Update()
     {
@@ -18,18 +27,25 @@ public class GridMovement : MonoBehaviour
         if (inputFunction(KeyCode.W))
         {
             TryMove(Vector2.up);
+            spriteRenderer.sprite = topsprite; // Setze Sprite auf oben
         }
         else if (inputFunction(KeyCode.S))
         {
             TryMove(Vector2.down);
+            spriteRenderer.sprite = bottomsprite; // Setze Sprite auf unten
         }
         else if (inputFunction(KeyCode.A))
         {
             TryMove(Vector2.left);
+            spriteRenderer.sprite = leftsprite; // Setze Sprite auf links
+            spriteRenderer.flipX = false;
         }
         else if (inputFunction(KeyCode.D))
         {
             TryMove(Vector2.right);
+            spriteRenderer.sprite = leftsprite; // Setze Sprite auf rechts
+            spriteRenderer.flipX = true;
+
         }
     }
 
@@ -38,35 +54,44 @@ public class GridMovement : MonoBehaviour
         StartCoroutine(HandleMove(dir));
     }
 
-    private IEnumerator HandleMove(Vector2 dir)
+private IEnumerator HandleMove(Vector2 dir)
+{
+    Vector2 targetPos = (Vector2)transform.position + dir * gridSize;
+
+    if (IsPositionBlocked(targetPos))
     {
-        Vector2 targetPos = (Vector2)transform.position + dir * gridSize;
-
-        if (IsPositionBlocked(targetPos))
-        {
-            Debug.Log("Bewegung blockiert: Loch im Weg");
-            yield break; // Bewegung abbrechen
-        }
-
-        isMoving = true;
-
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, dir, gridSize);
-        if (hit.collider != null)
-        {
-            PushableBlock block = hit.collider.GetComponent<PushableBlock>();
-            if (block != null && block.CanMove(dir) && block.isPushable)
-            {
-                yield return StartCoroutine(block.Move(dir));
-                yield return StartCoroutine(CheckBlockHoleAfterMove(block));
-                isMoving = false;
-                yield break; // Spieler bewegt sich nicht selbst, wenn Block bewegt wurde
-            }
-        }
-
-        // Kein Block: Spieler bewegt sich normal
-        yield return StartCoroutine(Move(dir));
-        isMoving = false;
+        Debug.Log("Bewegung blockiert: Loch im Weg");
+        yield break;
     }
+
+    isMoving = true;
+
+    RaycastHit2D hit = Physics2D.Raycast(transform.position, dir, gridSize);
+    if (hit.collider != null)
+    {
+        PushableBlock block = hit.collider.GetComponent<PushableBlock>();
+        if (block != null)
+        {
+            // ❗ Wenn Block nicht bewegbar ist, Spieler nicht bewegen
+            if (!block.CanMove(dir) || !block.isPushable)
+            {
+                Debug.Log("Block kann nicht bewegt werden – Spieler bleibt stehen.");
+                isMoving = false;
+                yield break;
+            }
+
+            // ✅ Block ist bewegbar → bewegen
+            yield return StartCoroutine(block.Move(dir));
+            yield return StartCoroutine(CheckBlockHoleAfterMove(block));
+            isMoving = false;
+            yield break; // Spieler bewegt sich nicht selbst
+        }
+    }
+
+    // ✅ Kein Block → Spieler bewegt sich
+    yield return StartCoroutine(Move(dir));
+    isMoving = false;
+}
 
     private bool IsPositionBlocked(Vector2 targetPos)
     {
@@ -80,6 +105,10 @@ public class GridMovement : MonoBehaviour
                 {
                     return true; // Blockiere Bewegung, wenn Loch offen ist
                 }
+            }
+            if( hit.CompareTag("Wall"))  
+            {
+                return true; // Blockiere Bewegung bei Wänden oder anderen Blöcken
             }
         }
         return false;

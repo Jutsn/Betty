@@ -8,6 +8,7 @@ TagManager:
   - LightOrb
   - Enemy
   - Hole
+  - Wall
   layers:
   - Default
   - TransparentFX
