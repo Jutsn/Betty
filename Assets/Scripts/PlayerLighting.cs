@@ -121,7 +121,7 @@ public class PlayerLighting : MonoBehaviour
             Vector2 shootDirection = mouseWorldPos - (Vector2)transform.position;
 
             // Schusskraft anpassen je nach Gefühl (z. B. 15f)
-            float shootForce = 15f;
+            float shootForce = 5f;
 
             lightOrb.GetComponent<LightOrbBehaviour>().ShootLightOrb(shootDirection, shootForce);
             }
