@@ -70,13 +70,7 @@ public class PlayerLighting : MonoBehaviour
 
         if (isInChargingStation && Input.GetKeyDown(KeyCode.E))
         {
-
-			currentChargingStation.UpgradeMaxEnergy();
-			batterySO.energy = batterySO.maxEnergy;
-            UIManager.Instance.UpdateBatteryChargeUI();
-            Debug.Log("Battery recharged!");
-            
-            currentChargingStation.TrySetCheckpoint(gameObject);
+            Recharge();
         }
     }
 
@@ -90,13 +84,41 @@ public class PlayerLighting : MonoBehaviour
         }
     }
 
+    private void Recharge()
+    {
+        currentChargingStation.UpgradeMaxEnergy();
+        currentChargingStation.anim.SetBool("isActivated", true);
+		batterySO.energy = batterySO.maxEnergy;
+        Light2D light = currentChargingStation.GetComponentInChildren<Light2D>();
+        StartCoroutine(SmoothExpandLight(light, 5f, 1.5f)); // Dauer: 1.5 Sekunden
+        UIManager.Instance.UpdateBatteryChargeUI();
+            
+        currentChargingStation.TrySetCheckpoint(gameObject);
+    }
+
+    private IEnumerator SmoothExpandLight(Light2D light, float targetRadius, float duration)
+{
+    float startRadius = light.pointLightOuterRadius;
+    float time = 0f;
+
+    while (time < duration)
+    {
+        time += Time.deltaTime;
+        float t = time / duration;
+        light.pointLightOuterRadius = Mathf.Lerp(startRadius, targetRadius, t);
+        yield return null;
+    }
+
+    light.pointLightOuterRadius = targetRadius; // Sicherstellen, dass es exakt ankommt
+}
+
     private void FlashLightOff()
     {
-		targetSprite.material = litMaterial;
-		playerLight.enabled = false;
-		passiveLight.gameObject.SetActive(true);
-		lightActive = false;
-	}
+        targetSprite.material = litMaterial;
+        playerLight.enabled = false;
+        passiveLight.gameObject.SetActive(true);
+        lightActive = false;
+    }
     void FlashLightOn()
     {
 		targetSprite.material = unlitMaterial;
