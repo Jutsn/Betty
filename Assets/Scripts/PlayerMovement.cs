@@ -16,7 +16,7 @@ public class PlayerMovement : MonoBehaviour
     private bool grounded;
 
     private Rigidbody2D rb;
-    private Animator animator;
+    public Animator animator;
     private KnockBack knockback;
     public LayerMask groundLayer;
 
@@ -31,7 +31,7 @@ public class PlayerMovement : MonoBehaviour
         
     void Update()
     {
-        if (GameManager.Instance.gameOver) 
+        if (GameManager.Instance.gameOver)
             return;
 
         grounded = Physics2D.Raycast(transform.position, Vector2.down, playerHeight/2 + 0.2f, groundLayer);
@@ -88,7 +88,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void DeathAnimation()
     {
-        ///Hier Death Animation
+        animator.SetBool("isShutDown", true);
     }
 
     void GetMoveInput()

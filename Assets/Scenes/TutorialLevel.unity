@@ -149,6 +149,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameOver: 0
+  batterySO: {fileID: 11400000, guid: 414ee0b95db65ef4381599f917b654ba, type: 2}
+  playerRespawnScript: {fileID: 0}
+  playerMovementScript: {fileID: 0}
 --- !u!4 &46683034
 Transform:
   m_ObjectHideFlags: 0
@@ -237,7 +240,7 @@ Transform:
   m_GameObject: {fileID: 163014974}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 20.689999, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -326,7 +329,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3413295258356709689, guid: 5d56bb5faf3c1394ea9d630d29dc1d08, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.53
+      value: 19.159998
       objectReference: {fileID: 0}
     - target: {fileID: 3413295258356709689, guid: 5d56bb5faf3c1394ea9d630d29dc1d08, type: 3}
       propertyPath: m_LocalPosition.z
@@ -509,7 +512,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -13.557049, y: 0.52, z: -4}
+  m_LocalPosition: {x: -13.557049, y: 21.21, z: -4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -579,6 +582,7 @@ MonoBehaviour:
   batteryChargeSlider: {fileID: 564209629}
   batterySO: {fileID: 11400000, guid: 414ee0b95db65ef4381599f917b654ba, type: 2}
   chargeStationPanel: {fileID: 732247647}
+  consolePanel: {fileID: 0}
 --- !u!1 &564209627
 GameObject:
   m_ObjectHideFlags: 0
@@ -747,7 +751,7 @@ Transform:
   m_GameObject: {fileID: 619394800}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 20.689999, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

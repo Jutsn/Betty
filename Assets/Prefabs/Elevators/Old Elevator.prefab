@@ -178,6 +178,7 @@ MonoBehaviour:
   autoStart: 1
   loop: 1
   waitTime: 3
+  isActivated: 1
 --- !u!50 &6574777544525645329
 Rigidbody2D:
   serializedVersion: 5

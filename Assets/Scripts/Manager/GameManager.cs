@@ -8,7 +8,11 @@ public class GameManager : MonoBehaviour
 	public bool gameOver;
 	[SerializeField]
 	BatterySO batterySO;
+	[SerializeField]
+
 	private PlayerRespawn playerRespawnScript;
+	[SerializeField]
+
 	private PlayerMovement playerMovementScript;
 
 
@@ -35,11 +39,12 @@ public class GameManager : MonoBehaviour
 	}
 	IEnumerator RespawnCoroutine()
 	{
-		yield return new WaitForSeconds(2);
+		yield return new WaitForSeconds(5f);
 		//Warte bis zum Ende der Animation
 		playerRespawnScript.Respawn();
 		batterySO.energy = batterySO.maxEnergy;
 		UIManager.Instance.UpdateBatteryChargeUI();
 		gameOver = false;
+		playerMovementScript.animator.SetBool("isShutDown", false);
 	}
 }

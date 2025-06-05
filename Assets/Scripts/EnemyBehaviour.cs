@@ -121,11 +121,13 @@ public class EnemyBehaviour : MonoBehaviour
 	{
 		if (playerInfo.collider != null)
 		{
+			anim.SetBool("isCharging", true);
 			isChasingPlayer = true;
 			enemyMoveSpeed = chargeSpeed;
 		}
 		else
 		{
+			anim.SetBool("isCharging", false);
 			isChasingPlayer = false;
 			enemyMoveSpeed = walkSpeed;
 		}
