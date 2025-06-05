@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.Rendering.Universal;
 
 public class ElevatorBehaviour : MonoBehaviour
 {
@@ -25,12 +26,14 @@ public class ElevatorBehaviour : MonoBehaviour
 	private float playerMovementThreshold = 0.05f; // Erlaubt leichtes Zittern
 
 	private Animator[] animators;
+	public Light2D[] lights;
 
 	void Start()
 	{
 		rb = GetComponent<Rigidbody2D>();
 		rb.bodyType = RigidbodyType2D.Kinematic;
 		animators = GetComponentsInChildren<Animator>();
+		
 		targetPosition = pointB.position;
 		lastPlatformPosition = transform.position;
 
@@ -120,6 +123,12 @@ public class ElevatorBehaviour : MonoBehaviour
 		isActivated = !isActivated;
 		animators[0].SetBool("isActivated", isActivated);
 		animators[1].SetBool("isActivated", isActivated);
+
+		for(int i = 0; i < lights.Length; i++)
+		{
+			lights[i].gameObject.SetActive(isActivated);
+		}
+		
 
 	}
 }
