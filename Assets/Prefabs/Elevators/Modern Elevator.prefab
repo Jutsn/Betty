@@ -120,6 +120,7 @@ MonoBehaviour:
   isActivated: 0
   animators: []
   lights: []
+  activationSound: {fileID: 8300000, guid: 9cfe3cc37c11bdc408a876c66745834d, type: 3}
 --- !u!50 &1571447069567866734
 Rigidbody2D:
   serializedVersion: 5

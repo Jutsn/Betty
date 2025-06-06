@@ -30,6 +30,8 @@ public class ElevatorBehaviour : MonoBehaviour
 	public Animator[] animators;
 	public Light2D[] lights;
 
+	public AudioClip activationSound;
+
 	void Start()
 	{
 		rb = GetComponent<Rigidbody2D>();
@@ -127,6 +129,7 @@ public class ElevatorBehaviour : MonoBehaviour
 		if (animators.Length == 1)
 		{
 			animators[0].SetBool("isActivated", isActivated);
+			SoundManager.Instance.PlaySound(activationSound, 0f);
 		}
 		else if (animators.Length > 1)
 		{
