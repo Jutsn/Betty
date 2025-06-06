@@ -7,9 +7,14 @@ public class TorTrigger : MonoBehaviour
 
 	private void OnTriggerEnter2D(Collider2D collision)
 	{
-		doorBehaviourScript.CloseDoor();
-		doorBehaviourScript1.CloseDoor();
-		gameObject.SetActive(false);
+		if (collision.CompareTag("Player"))
+		{
+			doorBehaviourScript.CloseDoor();
+			doorBehaviourScript1.CloseDoor();
+			gameObject.SetActive(false);
+		}
+			
+			
 
 	}
 }

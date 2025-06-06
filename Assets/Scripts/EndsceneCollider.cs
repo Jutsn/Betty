@@ -5,6 +5,7 @@ public class EndsceneCollider : MonoBehaviour
 {
 	private void OnTriggerEnter2D(Collider2D collision)
 	{
-		SceneManager.LoadScene("Overworld");
+		if(collision.CompareTag("Player"))
+			SceneManager.LoadScene("Overworld",LoadSceneMode.Additive);
 	}
 }
