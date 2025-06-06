@@ -1,5 +1,4 @@
 using System;
-using UnityEditor.SearchService;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -41,7 +40,8 @@ public class Console : MonoBehaviour
 		if (Input.GetKeyDown(KeyCode.E) && isInConsole)
 		{
 			batterySO.energy = batterySO.maxEnergy;
-			SceneManager.LoadScene(sceneName);
+			if(sceneName != null)
+				SceneManager.LoadScene(sceneName);
 		}
 	}
 }
