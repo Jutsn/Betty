@@ -70,21 +70,22 @@ public class GameManager : MonoBehaviour
 		playerMovementScript.animator.SetBool("isShutDown", false);
 	}
 
-	private void LoadTutorialLevel()
-	{
-		SceneManager.LoadScene("TutorialLevel");
-	}
-
 	void OnSceneLoaded(Scene scene, LoadSceneMode mode)
 	{
 		if (scene.name == "TutorialLevel")
 		{
+			batterySO.tutorialStartEnergy = 25f;
+			batterySO.maxEnergyUpgradeFromStation = 15f;
+			batterySO.lightOnEnergyConsumption = 3f;
+			batterySO.passiveEnergyConsumption = 1f;
+			batterySO.shootEnergyConsumption = 3f;
 			batterySO.maxEnergy = batterySO.tutorialStartEnergy;
 			batterySO.energy = batterySO.maxEnergy;
 			StartCoroutine(ShowPressFUI());
 		}
 		else if (scene.name == "Level 1")
 		{
+			batterySO.maxEnergyUpgradeFromStation = 5f;
 			elevatorBehaviourScript = GameObject.FindGameObjectWithTag("Elevator").GetComponent<ElevatorBehaviour>();
 			doorBehaviourScript = GameObject.FindGameObjectWithTag("Door").GetComponent<DoorBehaviour>();
 

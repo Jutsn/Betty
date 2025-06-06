@@ -339,7 +339,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d72cba654385134aa220d6d74d0217f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneToLoad: TutorialLevel
+  sceneToLoad: Overworld
 --- !u!1 &338505919
 GameObject:
   m_ObjectHideFlags: 0
