@@ -27,7 +27,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 32.88197, y: 8.195638, z: -0.1659892}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 7406772714103104046}
   - {fileID: 7496888458936204518}
@@ -183,7 +183,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1400546240453051041}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 073797afb82c5a1438f328866b10b3f0, type: 3}
   m_Name: 
@@ -408,7 +408,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3814572254781205728}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 073797afb82c5a1438f328866b10b3f0, type: 3}
   m_Name: 
@@ -565,10 +565,11 @@ MonoBehaviour:
   pointA: {fileID: 7496888458936204518}
   pointB: {fileID: 1084580134071977961}
   speed: 2
-  autoStart: 1
+  autoStart: 0
   loop: 1
   waitTime: 3
-  isActivated: 1
+  isActivated: 0
+  animators: []
   lights:
   - {fileID: 1400546240453051041}
   - {fileID: 3814572254781205728}
@@ -890,7 +891,7 @@ Transform:
   m_GameObject: {fileID: 8273163368787851768}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.78, y: -15.23, z: 0.09973574}
+  m_LocalPosition: {x: 0.78, y: 9.07, z: 0.09973574}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

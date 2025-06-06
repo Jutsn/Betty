@@ -18,9 +18,9 @@ public class DoorBehaviour : MonoBehaviour
 	}
 
     IEnumerator CloseDoorCoroutine()
-    {
+    {   yield return new WaitForSeconds(1f);
 		SoundManager.Instance.PlaySound(closeSound, 0f);
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.95f);
 		boxCollider.enabled = true;
 		animator.SetBool("isClosed", true);
 	}
