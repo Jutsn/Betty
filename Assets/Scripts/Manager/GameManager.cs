@@ -86,6 +86,8 @@ public class GameManager : MonoBehaviour
 		else if (scene.name == "Level 1")
 		{
 			batterySO.maxEnergyUpgradeFromStation = 5f;
+			batterySO.lightOnEnergyConsumption = 3.5f;
+			batterySO.passiveEnergyConsumption = 1.4f;
 			elevatorBehaviourScript = GameObject.FindGameObjectWithTag("Elevator").GetComponent<ElevatorBehaviour>();
 			doorBehaviourScript = GameObject.FindGameObjectWithTag("Door").GetComponent<DoorBehaviour>();
 
