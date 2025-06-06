@@ -12,6 +12,7 @@ TagManager:
   - Topdown-Exit
   - Door
   - Elevator
+  - TopDownReset
   layers:
   - Default
   - TransparentFX

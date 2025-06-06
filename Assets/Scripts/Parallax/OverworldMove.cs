@@ -13,6 +13,10 @@ public class OverworldMove : MonoBehaviour
     void Update()
     {
         horizontalInput = Input.GetAxis("Horizontal");
-        rb.linearVelocity = new Vector2(horizontalInput * 5, rb.linearVelocity.y);
+    }
+
+    void FixedUpdate()
+    {
+        rb.linearVelocity = new Vector2(horizontalInput * 5f, rb.linearVelocity.y);
     }
 }

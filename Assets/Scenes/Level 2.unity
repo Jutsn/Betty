@@ -279,11 +279,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3413295258356709689, guid: 5d56bb5faf3c1394ea9d630d29dc1d08, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 9.82
+      value: 25.7
       objectReference: {fileID: 0}
     - target: {fileID: 3413295258356709689, guid: 5d56bb5faf3c1394ea9d630d29dc1d08, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 117.52
+      value: 80.1
       objectReference: {fileID: 0}
     - target: {fileID: 3413295258356709689, guid: 5d56bb5faf3c1394ea9d630d29dc1d08, type: 3}
       propertyPath: m_LocalPosition.z
@@ -912,7 +912,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 10.5, y: 82.5, z: -4}
+  m_LocalPosition: {x: 27.35, y: 82.5, z: -4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -11067,6 +11067,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2330013719478416005, guid: d80b9f7c20065e143b29b511178d31d2, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.14
+      objectReference: {fileID: 0}
+    - target: {fileID: 5353536440111554257, guid: d80b9f7c20065e143b29b511178d31d2, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: e23896710d527924dae6c96b17a984b4, type: 2}
     - target: {fileID: 5581300876352232704, guid: d80b9f7c20065e143b29b511178d31d2, type: 3}
       propertyPath: m_LocalPosition.x
       value: 21.82
@@ -11107,6 +11115,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6675258369674702439, guid: d80b9f7c20065e143b29b511178d31d2, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -7341407202210888751, guid: 9f65a35dad2233749b47d51befd95bef, type: 3}
     - target: {fileID: 9034203976797251987, guid: d80b9f7c20065e143b29b511178d31d2, type: 3}
       propertyPath: m_Name
       value: Tor (2)
