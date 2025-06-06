@@ -322,7 +322,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3049551410391028501, guid: 7bd4aa0c3b739e5409493caaa89b8b75, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 12.47
+      value: 12.33
       objectReference: {fileID: 0}
     - target: {fileID: 3049551410391028501, guid: 7bd4aa0c3b739e5409493caaa89b8b75, type: 3}
       propertyPath: m_LocalPosition.z
@@ -417,6 +417,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4215492934040753242, guid: 5d56bb5faf3c1394ea9d630d29dc1d08, type: 3}
+      propertyPath: startPos
+      value: 
+      objectReference: {fileID: 1991349909}
     - target: {fileID: 4215492934040753242, guid: 5d56bb5faf3c1394ea9d630d29dc1d08, type: 3}
       propertyPath: startingPos
       value: 
@@ -12923,17 +12927,6 @@ TilemapCollider2D:
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0
   m_UseDelaunayMesh: 0
---- !u!114 &651899548 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1188806712531158906, guid: d80b9f7c20065e143b29b511178d31d2, type: 3}
-  m_PrefabInstance: {fileID: 4763615566775078073}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f7197dc0bc9241248ab60cada25a9bdd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &861211236
 GameObject:
   m_ObjectHideFlags: 0
@@ -13089,6 +13082,10 @@ PrefabInstance:
     - target: {fileID: 3173803036599106386, guid: 7bd4aa0c3b739e5409493caaa89b8b75, type: 3}
       propertyPath: m_Name
       value: ChargingStation (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5698717313393667430, guid: 7bd4aa0c3b739e5409493caaa89b8b75, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.09
       objectReference: {fileID: 0}
     - target: {fileID: 5876343045949793471, guid: 7bd4aa0c3b739e5409493caaa89b8b75, type: 3}
       propertyPath: m_LocalPosition.y
@@ -28507,6 +28504,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: ChargingStation
       objectReference: {fileID: 0}
+    - target: {fileID: 5698717313393667430, guid: 7bd4aa0c3b739e5409493caaa89b8b75, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.11
+      objectReference: {fileID: 0}
+    - target: {fileID: 5876343045949793471, guid: 7bd4aa0c3b739e5409493caaa89b8b75, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.35
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -31186,7 +31191,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3049551410391028501, guid: 7bd4aa0c3b739e5409493caaa89b8b75, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 6.9
+      value: 6.792
       objectReference: {fileID: 0}
     - target: {fileID: 3049551410391028501, guid: 7bd4aa0c3b739e5409493caaa89b8b75, type: 3}
       propertyPath: m_LocalPosition.z
@@ -31568,13 +31573,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: Old Elevator 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1084580134071977961, guid: df05091d46cdaa243b2140d3bc97ffd7, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 10.62
+      objectReference: {fileID: 0}
+    - target: {fileID: 6768323669524760965, guid: df05091d46cdaa243b2140d3bc97ffd7, type: 3}
+      propertyPath: isActivated
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6879293096939868620, guid: df05091d46cdaa243b2140d3bc97ffd7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 40.21
+      value: 39.83
       objectReference: {fileID: 0}
     - target: {fileID: 6879293096939868620, guid: df05091d46cdaa243b2140d3bc97ffd7, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 19.33
+      value: 5.76
       objectReference: {fileID: 0}
     - target: {fileID: 6879293096939868620, guid: df05091d46cdaa243b2140d3bc97ffd7, type: 3}
       propertyPath: m_LocalPosition.z
