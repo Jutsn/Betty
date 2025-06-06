@@ -12,7 +12,11 @@ TagManager:
   - Topdown-Exit
   - Door
   - Elevator
+<<<<<<< Updated upstream
+=======
   - TopDownReset
+  - gravity
+>>>>>>> Stashed changes
   layers:
   - Default
   - TransparentFX
