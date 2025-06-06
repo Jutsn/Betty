@@ -10,6 +10,7 @@ TagManager:
   - Hole
   - Wall
   - Topdown-Exit
+  - Door
   layers:
   - Default
   - TransparentFX
