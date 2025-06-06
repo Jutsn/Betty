@@ -33,7 +33,8 @@ public class EnemyBehaviour : MonoBehaviour
 	Rigidbody2D rb;
 
 	private KnockBack knockBackScript;
-	
+
+	public AudioClip deactivateEnemySound;
 
 	void Start()
 	{
@@ -41,7 +42,7 @@ public class EnemyBehaviour : MonoBehaviour
 		anim = GetComponentInChildren<Animator>();
 		light2D = GetComponent<Light2D>();
 		startPos = transform.position;
-		
+
 		walkSpeed = enemyMoveSpeed;
 		chargeSpeed = 2 * enemyMoveSpeed;
 	}
@@ -179,6 +180,7 @@ public class EnemyBehaviour : MonoBehaviour
 	{
 		isDeactivated = true;
 		anim.SetBool("isShutDown", true);
+		SoundManager.Instance.PlaySound(deactivateEnemySound, 0f);
 		StartCoroutine(BlinkingLight());
 	}
 

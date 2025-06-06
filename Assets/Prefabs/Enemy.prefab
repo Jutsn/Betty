@@ -128,6 +128,7 @@ MonoBehaviour:
   waitTime: 2
   playerCheckDistance: 3.5
   groundCheckDistance: 1
+  ceilingCheckDistance: 1
   batteryDamageThroughEnemy: 25
   isDeactivated: 0
   groundCheckSpot: {fileID: 5724435636304645452}
@@ -140,6 +141,8 @@ MonoBehaviour:
     m_Bits: 128
   anim: {fileID: 0}
   light2D: {fileID: 0}
+  deactivateEnemySound: {fileID: 8300000, guid: cd7071958915bde4d84a8e659c40cd5d, type: 3}
+  deactivateEnemySound1: {fileID: 8300000, guid: 96e4eb62881227d429450e66a1f55007, type: 3}
 --- !u!114 &4491019490166036402
 MonoBehaviour:
   m_ObjectHideFlags: 0

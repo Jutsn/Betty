@@ -11,6 +11,8 @@ public class WallSwitch : MonoBehaviour
 	private bool isLightActive = false;
 	private bool isInteractable = true;
 
+	public AudioClip switchSound;
+
 	private void Start()
 	{
 		elevatorBehaviourScript = elevatorToActivate.GetComponentInChildren<ElevatorBehaviour>();
@@ -36,6 +38,7 @@ public class WallSwitch : MonoBehaviour
 	{
 
 		animator.SetTrigger("isPressed");
+		SoundManager.Instance.PlaySound(switchSound, 0f);
 		yield return new WaitForSeconds(0.5f);
 		buttonLight.SetActive(isLightActive);
 		yield return new WaitForSeconds(0.7f);

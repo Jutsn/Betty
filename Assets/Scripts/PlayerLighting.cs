@@ -25,7 +25,11 @@ public class PlayerLighting : MonoBehaviour
     private bool canShoot = true;
 
     GameObject passiveLight;
-    
+
+    public AudioClip flashLightOff;
+    public AudioClip flashLightOn;
+    public AudioClip orbShootSound;
+    public AudioClip reChargeSound;
 
     
     public void Start()
@@ -55,10 +59,13 @@ public class PlayerLighting : MonoBehaviour
             if(lightActive)
             {
                 FlashLightOff();
+                SoundManager.Instance.PlaySound(flashLightOff, 0f);
+
 			}
             else
             {
                 FlashLightOn();
+				SoundManager.Instance.PlaySound(flashLightOn, 0f);
 			}
 
         if(Input.GetKeyDown(KeyCode.Q) && canShoot && batterySO.energy > batterySO.shootEnergyConsumption)
@@ -88,7 +95,8 @@ public class PlayerLighting : MonoBehaviour
         currentChargingStation.UpgradeMaxEnergy();
         currentChargingStation.anim.SetBool("isActivated", true);
 		batterySO.energy = batterySO.maxEnergy;
-        Light2D light = currentChargingStation.GetComponentInChildren<Light2D>();
+        SoundManager.Instance.PlaySound(reChargeSound, 0f);
+		Light2D light = currentChargingStation.GetComponentInChildren<Light2D>();
         StartCoroutine(SmoothExpandLight(light, 5f, 1.5f)); // Dauer: 1.5 Sekunden
         UIManager.Instance.UpdateBatteryChargeUI();
             
@@ -145,7 +153,8 @@ public class PlayerLighting : MonoBehaviour
             float shootForce = 5f;
 
             lightOrb.GetComponent<LightOrbBehaviour>().ShootLightOrb(shootDirection, shootForce);
-            }
+			SoundManager.Instance.PlaySound(orbShootSound, 0f);
+		    }
 
    
     }

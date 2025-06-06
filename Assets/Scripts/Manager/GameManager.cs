@@ -89,7 +89,7 @@ public class GameManager : MonoBehaviour
 			
 			doorBehaviourScript = GameObject.FindGameObjectWithTag("Door").GetComponent<DoorBehaviour>();
 
-			StartCoroutine(StartLevel3());
+			StartCoroutine(StartLevel2());
 		}
 
 
@@ -110,7 +110,7 @@ public class GameManager : MonoBehaviour
 		yield return new WaitForSeconds(1.5f);
 		elevatorBehaviourScript.ActivateElevator();
 	}
-	IEnumerator StartLevel3()
+	IEnumerator StartLevel2()
 	{
 		batterySO.energy = batterySO.maxEnergy;
 		yield return new WaitForSeconds(1f);

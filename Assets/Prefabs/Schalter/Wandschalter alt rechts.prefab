@@ -235,6 +235,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   elevatorToActivate: {fileID: 0}
   buttonLight: {fileID: 793309471339175466}
+  switchSound: {fileID: 8300000, guid: 92688f578815fd74fa7c3cc75475092e, type: 3}
 --- !u!1 &2445650473682562408
 GameObject:
   m_ObjectHideFlags: 0

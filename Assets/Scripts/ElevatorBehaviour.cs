@@ -128,11 +128,12 @@ public class ElevatorBehaviour : MonoBehaviour
 		isActivated = !isActivated;
 		if (animators.Length == 1)
 		{
-			animators[0].SetBool("isActivated", isActivated);
 			SoundManager.Instance.PlaySound(activationSound, 0f);
+			animators[0].SetBool("isActivated", isActivated);
 		}
 		else if (animators.Length > 1)
 		{
+			SoundManager.Instance.PlaySound(activationSound, 0f);
 			animators[0].SetBool("isActivated", isActivated);
 			animators[1].SetBool("isActivated", isActivated);
 		}
@@ -140,7 +141,7 @@ public class ElevatorBehaviour : MonoBehaviour
 		{
 			Debug.LogWarning("No animators found on ElevatorBehaviour.");
 		}
-	StartCoroutine(ToggleLightsAfterDelay());
+		StartCoroutine(ToggleLightsAfterDelay());
 
 	}
 	

@@ -21,6 +21,8 @@ public class PlayerMovement : MonoBehaviour
     public LayerMask groundLayer;
     private SpriteRenderer spriteRenderer;
 
+    public AudioClip deathSound;
+
 	void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -123,7 +125,8 @@ public class PlayerMovement : MonoBehaviour
     public void DeathAnimation()
     {
         animator.SetBool("isShutDown", true);
-    }
+		SoundManager.Instance.PlaySound(deathSound, 0f);
+	}
 
     void GetMoveInput()
     {

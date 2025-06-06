@@ -146,6 +146,7 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 256
+  deathSound: {fileID: 8300000, guid: 555108462ad914e49aafce280ac37a08, type: 3}
 --- !u!114 &2765145189936679077
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -230,6 +231,10 @@ MonoBehaviour:
   targetSprite: {fileID: 6488738253254908032}
   isInChargingStation: 0
   lightActive: 0
+  flashLightOff: {fileID: 8300000, guid: 9b3ada8c98385b14dadc2127e999a731, type: 3}
+  flashLightOn: {fileID: 8300000, guid: 19a31075e13b0dd40ba34f9f6a9fbfb5, type: 3}
+  orbShootSound: {fileID: 8300000, guid: 8df71654192268f4db039f6894991157, type: 3}
+  reChargeSound: {fileID: 8300000, guid: 5840796e69607304a82e92b1c5bd1597, type: 3}
 --- !u!114 &4215492934040753242
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -244,6 +249,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentCheckpoint: {fileID: 0}
   rb: {fileID: 0}
+  startPos: {fileID: 0}
+  deathSound: {fileID: 8300000, guid: 555108462ad914e49aafce280ac37a08, type: 3}
+  respawnSound: {fileID: 8300000, guid: 5840796e69607304a82e92b1c5bd1597, type: 3}
 --- !u!50 &4084178585922602136
 Rigidbody2D:
   serializedVersion: 5
@@ -267,7 +275,7 @@ Rigidbody2D:
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
