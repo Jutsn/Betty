@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxEnergy: 50
   tutorialStartEnergy: 25
-  energy: 2
+  energy: 40
   maxEnergyUpgradeFromStation: 5
-  lightOnEnergyConsumption: 3
-  passiveEnergyConsumption: 1
-  shootEnergyConsumption: 5
+  lightOnEnergyConsumption: 2
+  passiveEnergyConsumption: 0.5
+  shootEnergyConsumption: 4
