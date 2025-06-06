@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -10,9 +11,11 @@ public class GameManager : MonoBehaviour
 	BatterySO batterySO;
 
 	private PlayerRespawn playerRespawnScript;
-	
-
 	private PlayerMovement playerMovementScript;
+
+	public bool showFKey = true;
+	public bool showQKey = true;
+	public bool startOfTutorialLevel = true;
 
 
 
@@ -29,7 +32,17 @@ public class GameManager : MonoBehaviour
 		playerRespawnScript = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerRespawn>();
 		playerMovementScript = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>();
 	}
-	
+
+	void OnEnable()
+	{
+		SceneManager.sceneLoaded += OnSceneLoaded;
+	}
+
+	void OnDisable()
+	{
+		SceneManager.sceneLoaded -= OnSceneLoaded;
+	}
+
 	public void GameOver()
 	{
 		gameOver = true;
@@ -45,5 +58,33 @@ public class GameManager : MonoBehaviour
 		UIManager.Instance.UpdateBatteryChargeUI();
 		gameOver = false;
 		playerMovementScript.animator.SetBool("isShutDown", false);
+	}
+
+	private void LoadTutorialLevel()
+	{
+		SceneManager.LoadScene("TutorialLevel");
+	}
+
+	void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+	{
+		if (scene.name == "TutorialLevel")
+		{
+			batterySO.maxEnergy = batterySO.tutorialStartEnergy;
+			batterySO.energy = batterySO.maxEnergy;
+			StartCoroutine(ShowPressFUI());
+		}
+		else
+		{
+			batterySO.energy = batterySO.maxEnergy;
+		}
+
+
+	}
+	IEnumerator ShowPressFUI()
+	{
+		showFKey = true;
+		yield return new WaitForSeconds(2f);
+		UIManager.Instance.ShowPressFPanelUI();
+		
 	}
 }

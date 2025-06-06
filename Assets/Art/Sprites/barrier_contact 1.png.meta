@@ -1,10 +1,13 @@
 fileFormatVersion: 2
-guid: 6782b25caee64db479fcba89bc759805
+guid: 44144f5fde2f16d43a9961d6b9d688b9
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 6354032754688424627
-    second: F Button_0
+      213: -3711001032083177573
+    second: barrier_contact_0
+  - first:
+      213: -6463719212938288313
+    second: barrier_contact_1
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -51,7 +54,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 0.5
+  spritePixelsToUnits: 48
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -101,7 +104,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -114,7 +117,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -126,14 +129,14 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: F Button_0
+      name: barrier_contact_0
       rect:
         serializedVersion: 2
-        x: 2
-        y: 2
-        width: 28
-        height: 28
-      alignment: 0
+        x: 0
+        y: 7
+        width: 96
+        height: 21
+      alignment: 9
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
@@ -141,8 +144,30 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 3ba7662102f0e2850800000000000000
-      internalID: 6354032754688424627
+      spriteID: b9ff2991930ef7cc0800000000000000
+      internalID: -3711001032083177573
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: barrier_contact_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2
+        width: 67
+        height: 18
+      alignment: 9
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b1607a95f43b6c14486641f1bfd93925
+      internalID: 688677951
       vertices: []
       indices: 
       edges: []
@@ -151,7 +176,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 9f7bf2ce983f86e44a16d1a9ac019709
     internalID: 0
     vertices: []
     indices: 
@@ -161,7 +186,8 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      F Button_0: 6354032754688424627
+      barrier_contact_0: -3711001032083177573
+      barrier_contact_1: 688677951
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

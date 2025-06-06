@@ -31,7 +31,6 @@ public class PlayerLighting : MonoBehaviour
     public void Start()
     {
         passiveLight = GameObject.Find("Light 2D Passiv");
-        batterySO.energy = batterySO.maxEnergy;
 		FlashLightOff();
 		StartCoroutine(LoseEnergy());
     }
@@ -68,7 +67,7 @@ public class PlayerLighting : MonoBehaviour
             StartCoroutine(ShotCooldown());   
         }
 
-        if (isInChargingStation && Input.GetKeyDown(KeyCode.E))
+        if (isInChargingStation && Input.GetKeyDown(KeyCode.E) &&!GameManager.Instance.gameOver)
         {
             Recharge();
         }
@@ -160,31 +159,36 @@ public class PlayerLighting : MonoBehaviour
 
     IEnumerator LoseEnergy()
     {
-        while (!GameManager.Instance.gameOver)
+        while (true)
         {
-            if (lightActive && batterySO.energy > 0)
-            {
-                batterySO.energy -= batterySO.lightOnEnergyConsumption;
-                UIManager.Instance.UpdateBatteryChargeUI();
-            }
-            else if (!lightActive && batterySO.energy > 0)
-            {
-				batterySO.energy -= batterySO.passiveEnergyConsumption;
-				UIManager.Instance.UpdateBatteryChargeUI();
+			while (!GameManager.Instance.gameOver)
+			{
+				if (lightActive && batterySO.energy > 0)
+				{
+					batterySO.energy -= batterySO.lightOnEnergyConsumption;
+					UIManager.Instance.UpdateBatteryChargeUI();
+				}
+				else if (!lightActive && batterySO.energy > 0)
+				{
+					batterySO.energy -= batterySO.passiveEnergyConsumption;
+					UIManager.Instance.UpdateBatteryChargeUI();
+				}
+
+				if (batterySO.energy <= 0)
+				{
+					batterySO.energy = 0;
+					UIManager.Instance.UpdateBatteryChargeUI();
+					FlashLightOff();
+					GameManager.Instance.GameOver();
+				}
+
+				yield return new WaitForSeconds(1f);
 			}
 
-            if (batterySO.energy <= 0)
-            {
-                batterySO.energy = 0;
-				UIManager.Instance.UpdateBatteryChargeUI();
-				FlashLightOff();
-                GameManager.Instance.GameOver();
-            }
-
             yield return new WaitForSeconds(1f);
-        }   
-    yield return null;
-}
+		}   
+        
+    }
 
 	public void GetEnergyDamage(float damage)
 	{

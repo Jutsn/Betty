@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.Rendering.Universal;
+using System.Collections.Generic;
+using UnityEngine.Assertions;
 
 public class ElevatorBehaviour : MonoBehaviour
 {
@@ -25,7 +27,7 @@ public class ElevatorBehaviour : MonoBehaviour
 	private Rigidbody2D playerRb;
 	private float playerMovementThreshold = 0.05f; // Erlaubt leichtes Zittern
 
-	private Animator[] animators;
+	public Animator[] animators;
 	public Light2D[] lights;
 
 	void Start()
@@ -33,6 +35,7 @@ public class ElevatorBehaviour : MonoBehaviour
 		rb = GetComponent<Rigidbody2D>();
 		rb.bodyType = RigidbodyType2D.Kinematic;
 		animators = GetComponentsInChildren<Animator>();
+
 		lights = GetComponentsInChildren<Light2D>();
 
 		targetPosition = pointB.position;
@@ -43,7 +46,6 @@ public class ElevatorBehaviour : MonoBehaviour
 			moving = true;
 		}
 	}
-
 	void FixedUpdate()
 	{
 		if (!isActivated) return;
@@ -120,6 +122,7 @@ public class ElevatorBehaviour : MonoBehaviour
 
 	public void ActivateElevator()
 	{
+		
 		isActivated = !isActivated;
 		if (animators.Length == 1)
 		{
