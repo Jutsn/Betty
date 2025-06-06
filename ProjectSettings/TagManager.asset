@@ -9,6 +9,7 @@ TagManager:
   - Enemy
   - Hole
   - Wall
+  - Topdown-Exit
   layers:
   - Default
   - TransparentFX

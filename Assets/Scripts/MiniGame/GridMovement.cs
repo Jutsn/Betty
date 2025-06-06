@@ -129,6 +129,22 @@ private IEnumerator HandleMove(Vector2 dir)
         }
 
         transform.position = end;
+
+        // Nach der Bewegung prüfen, ob ein spezielles Feld unter dem Spieler ist
+        CheckSpecialField();
+    }
+
+    private void CheckSpecialField()
+    {
+        Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, 0.1f);
+        foreach (var hit in hits)
+        {
+            if (hit.CompareTag("Topdown-Exit")) // Tag anpassen!
+            {
+                // Hier die gewünschte Funktion aufrufen
+                hit.GetComponent<TopDownExit>()?.OnPlayerSteppedOn();
+            }
+        }
     }
 
     private IEnumerator CheckBlockHoleAfterMove(PushableBlock block)
