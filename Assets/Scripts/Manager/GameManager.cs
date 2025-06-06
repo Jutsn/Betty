@@ -1,4 +1,5 @@
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -16,6 +17,9 @@ public class GameManager : MonoBehaviour
 	public bool showFKey = true;
 	public bool showQKey = true;
 	public bool startOfTutorialLevel = true;
+
+	private ElevatorBehaviour elevatorBehaviourScript;
+	private DoorBehaviour doorBehaviourScript;
 
 
 
@@ -73,9 +77,12 @@ public class GameManager : MonoBehaviour
 			batterySO.energy = batterySO.maxEnergy;
 			StartCoroutine(ShowPressFUI());
 		}
-		else
+		else if (scene.name == "Level 1")
 		{
-			batterySO.energy = batterySO.maxEnergy;
+			elevatorBehaviourScript = GameObject.FindGameObjectWithTag("Elevator").GetComponent<ElevatorBehaviour>();
+			doorBehaviourScript = GameObject.FindGameObjectWithTag("Door").GetComponent<DoorBehaviour>();
+
+			StartCoroutine(StartLevel2());
 		}
 
 
@@ -86,5 +93,14 @@ public class GameManager : MonoBehaviour
 		yield return new WaitForSeconds(2f);
 		UIManager.Instance.ShowPressFPanelUI();
 		
+	}
+
+	IEnumerator StartLevel2()
+	{
+		batterySO.energy = batterySO.maxEnergy;
+		yield return new WaitForSeconds(1f);
+		doorBehaviourScript.CloseDoor();
+		yield return new WaitForSeconds(1.5f);
+		elevatorBehaviourScript.ActivateElevator();
 	}
 }

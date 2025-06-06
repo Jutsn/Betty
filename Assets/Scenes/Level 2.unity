@@ -328,11 +328,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3413295258356709689, guid: 5d56bb5faf3c1394ea9d630d29dc1d08, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 32.39
+      value: 31.9
       objectReference: {fileID: 0}
     - target: {fileID: 3413295258356709689, guid: 5d56bb5faf3c1394ea9d630d29dc1d08, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 80
+      value: 23.8
       objectReference: {fileID: 0}
     - target: {fileID: 3413295258356709689, guid: 5d56bb5faf3c1394ea9d630d29dc1d08, type: 3}
       propertyPath: m_LocalPosition.z
@@ -31340,7 +31340,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3049551410391028501, guid: 7bd4aa0c3b739e5409493caaa89b8b75, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 29.039341
+      value: 29.2
       objectReference: {fileID: 0}
     - target: {fileID: 3049551410391028501, guid: 7bd4aa0c3b739e5409493caaa89b8b75, type: 3}
       propertyPath: m_LocalPosition.z
@@ -31377,6 +31377,14 @@ PrefabInstance:
     - target: {fileID: 3173803036599106386, guid: 7bd4aa0c3b739e5409493caaa89b8b75, type: 3}
       propertyPath: m_Name
       value: ChargingStation (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5698717313393667430, guid: 7bd4aa0c3b739e5409493caaa89b8b75, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.36
+      objectReference: {fileID: 0}
+    - target: {fileID: 5876343045949793471, guid: 7bd4aa0c3b739e5409493caaa89b8b75, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.54
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
