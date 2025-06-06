@@ -38,6 +38,12 @@ public class PlayerMovement : MonoBehaviour
             rb.linearVelocity = Vector2.zero;
 			return;
 		}
+
+        if (Input.GetKeyDown(KeyCode.F) && GameManager.Instance.showFKey)
+        {
+            UIManager.Instance.HidePressFPanelUI();
+			GameManager.Instance.showFKey = false;
+        }
             
 
         grounded = Physics2D.Raycast(transform.position, Vector2.down, playerHeight/2 + 0.2f, groundLayer);

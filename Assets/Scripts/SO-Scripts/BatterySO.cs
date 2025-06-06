@@ -5,6 +5,7 @@ using UnityEngine;
 public class BatterySO : ScriptableObject
 {
 	public float maxEnergy;
+	public float tutorialStartEnergy;
 	public float energy;
 	public float maxEnergyUpgradeFromStation;
 	public float lightOnEnergyConsumption;

@@ -17,6 +17,8 @@ public class UIManager : MonoBehaviour
     private GameObject chargeStationPanel;
     [SerializeField]
     private GameObject consolePanel;
+    [SerializeField]
+    private GameObject PressFPanel;
 
 
     private void Awake()
@@ -62,5 +64,15 @@ public class UIManager : MonoBehaviour
     public void HideConsoleUI()
     {
 		consolePanel.SetActive(false);
+    }
+
+    public void ShowPressFPanelUI()
+    {
+		PressFPanel.SetActive(true);
+    }
+
+    public void HidePressFPanelUI()
+    {
+		PressFPanel.SetActive(false);
     }
 }
