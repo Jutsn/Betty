@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2223047124148934569}
   - component: {fileID: 5673038139217087110}
-  - component: {fileID: 4396194672509294421}
-  - component: {fileID: 2391971736258592772}
+  - component: {fileID: 1916620414768704383}
+  - component: {fileID: 2185390726126920737}
   m_Layer: 0
   m_Name: Music Manager
   m_TagString: Untagged
@@ -46,10 +46,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e17a0c4a177a3bc44b40c097304b6686, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioSourceA: {fileID: 4396194672509294421}
-  audioSourceB: {fileID: 2391971736258592772}
-  fadeDuration: 2
---- !u!82 &4396194672509294421
+  audioSourceA: {fileID: 1916620414768704383}
+  audioSourceB: {fileID: 2185390726126920737}
+  song1: {fileID: 8300000, guid: 30ac67a4e5195084f9d616f3f626f925, type: 3}
+  song2: {fileID: 8300000, guid: aaff4d6a2c5518d45bb615fb3065ae2d, type: 3}
+  song3: {fileID: 8300000, guid: 6ed109accead1044d957e3bbc2cd91bf, type: 3}
+  fadeDuration: 3
+  song2IsLooping: 0
+--- !u!82 &1916620414768704383
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -58,7 +62,7 @@ AudioSource:
   m_GameObject: {fileID: 3316122907826350851}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 3103903820729996694, guid: 5cc7ec163a8bc0c43a4f54ccc9e0bba6, type: 2}
+  OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
   m_PlayOnAwake: 1
@@ -146,7 +150,7 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!82 &2391971736258592772
+--- !u!82 &2185390726126920737
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -155,7 +159,7 @@ AudioSource:
   m_GameObject: {fileID: 3316122907826350851}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 3103903820729996694, guid: 5cc7ec163a8bc0c43a4f54ccc9e0bba6, type: 2}
+  OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
   m_PlayOnAwake: 1

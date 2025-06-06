@@ -44,6 +44,7 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.F) && GameManager.Instance.showFKey)
         {
             UIManager.Instance.HidePressFPanelUI();
+            MusicManager.Instance.PlaySongOne();
 			GameManager.Instance.showFKey = false;
         }
         if (Input.GetKeyDown(KeyCode.Q) && GameManager.Instance.showQKey)

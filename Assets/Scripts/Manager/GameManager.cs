@@ -21,6 +21,12 @@ public class GameManager : MonoBehaviour
 	private ElevatorBehaviour elevatorBehaviourScript;
 	private DoorBehaviour doorBehaviourScript;
 
+	public AudioSource audioSourceA;
+	public AudioSource audioSourceB;
+
+	public AudioClip song1;
+	public AudioClip song2;
+	public AudioClip song3;
 
 
 	private void Awake()
@@ -109,11 +115,15 @@ public class GameManager : MonoBehaviour
 		doorBehaviourScript.CloseDoor();
 		yield return new WaitForSeconds(1.5f);
 		elevatorBehaviourScript.ActivateElevator();
+		MusicManager.Instance.PlaySongOne();
 	}
 	IEnumerator StartLevel2()
 	{
 		batterySO.energy = batterySO.maxEnergy;
 		yield return new WaitForSeconds(1f);
 		doorBehaviourScript.CloseDoor();
+		MusicManager.Instance.PlaySongOne();
 	}
+
+	
 }
