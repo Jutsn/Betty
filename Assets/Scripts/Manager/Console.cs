@@ -40,8 +40,11 @@ public class Console : MonoBehaviour
 		if (Input.GetKeyDown(KeyCode.E) && isInConsole)
 		{
 			batterySO.energy = batterySO.maxEnergy;
-			if(sceneName != null)
+			if (sceneName != null)
+			{
 				SceneManager.LoadScene(sceneName);
+			}
+			
 		}
 	}
 }
