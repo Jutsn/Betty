@@ -920,8 +920,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8898737546204162795, guid: da47979392ab79447838906317fb92cd, type: 3}
   m_PrefabInstance: {fileID: 1237038152}
   m_PrefabAsset: {fileID: 0}
-<<<<<<< Updated upstream
-=======
 --- !u!1001 &320224207
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -933,7 +931,7 @@ PrefabInstance:
     - target: {fileID: 1879608527563428120, guid: 9252455e82dbd6e42a2238b4bc2f0d72, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 6978098356892758718, guid: aa9dab2eba9f9b94abdb153870c26f29, type: 3}
+      objectReference: {fileID: 7086275487734216876, guid: 7b73a04d6216cf648908ed73107e6d97, type: 3}
     - target: {fileID: 1890892354131140765, guid: 9252455e82dbd6e42a2238b4bc2f0d72, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x
       value: 2
@@ -995,7 +993,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9252455e82dbd6e42a2238b4bc2f0d72, type: 3}
->>>>>>> Stashed changes
 --- !u!4 &324140672 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8898737546204162795, guid: da47979392ab79447838906317fb92cd, type: 3}
@@ -5338,3 +5335,4 @@ SceneRoots:
   - {fileID: 1842067142}
   - {fileID: 1147587807}
   - {fileID: 7055312703986200014}
+  - {fileID: 320224207}
