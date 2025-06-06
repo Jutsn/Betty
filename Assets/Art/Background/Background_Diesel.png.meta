@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Background_Diesel_0: 1754163990418790529
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
