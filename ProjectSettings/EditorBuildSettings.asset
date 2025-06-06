@@ -6,6 +6,15 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+<<<<<<< Updated upstream
+=======
+    path: Assets/Scenes/MainMenu.unity
+    guid: 2557429912ece7b409ee77ae66b6f395
+  - enabled: 1
+    path: Assets/Scenes/Overworld.unity
+    guid: ea6d9da6fc6f50343a8a8774eb966dee
+  - enabled: 1
+>>>>>>> Stashed changes
     path: Assets/Scenes/TutorialLevel.unity
     guid: 07f18ecb3329fea439cff005fa2e2ffb
   - enabled: 1
@@ -20,9 +29,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Level 2.unity
     guid: 23a5548ee4ab55449a3e42f5a8fefd1e
-  - enabled: 1
-    path: Assets/Scenes/Overworld.unity
-    guid: ea6d9da6fc6f50343a8a8774eb966dee
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0
