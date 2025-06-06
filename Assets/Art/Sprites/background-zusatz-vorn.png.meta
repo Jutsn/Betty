@@ -1,34 +1,13 @@
 fileFormatVersion: 2
-guid: 02dd8ecab49b3a343a4ed85f75755942
+guid: 17786c9227134fa43bd260a75bb59108
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 2606060011969900543
-    second: A-S-vorne_0
+      213: 3379979181158877885
+    second: background-zusatz-vorn_0
   - first:
-      213: 1784408175937424930
-    second: A-S-vorne_1
-  - first:
-      213: 4661185505906981334
-    second: A-S-vorne_2
-  - first:
-      213: 887744556748223228
-    second: A-S-vorne_3
-  - first:
-      213: -2169735537635347449
-    second: A-S-vorne_4
-  - first:
-      213: 7282859287766824698
-    second: A-S-vorne_5
-  - first:
-      213: 3420259024335802766
-    second: A-S-vorne_6
-  - first:
-      213: 2047739036666995224
-    second: A-S-vorne_7
-  - first:
-      213: -6670607808615102514
-    second: A-S-vorne_8
+      213: 2301454547834753835
+    second: background-zusatz-vorn_1
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -124,13 +103,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: A-S-vorne_0
+      name: background-zusatz-vorn_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 320
-        height: 180
+        width: 92
+        height: 320
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -139,8 +118,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: fffe0dcf5c59a2420800000000000000
-      internalID: 2606060011969900543
+      spriteID: dbac039482918ee20800000000000000
+      internalID: 3379979181158877885
       vertices: []
       indices: 
       edges: []
@@ -149,7 +128,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: f0296b69b7ecfa248918260cc2a503c2
+    spriteID: 8979f98131550e14ba4073991fb1e578
     internalID: 0
     vertices: []
     indices: 
@@ -159,7 +138,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      A-S-vorne_0: 2606060011969900543
+      background-zusatz-vorn_0: 3379979181158877885
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
