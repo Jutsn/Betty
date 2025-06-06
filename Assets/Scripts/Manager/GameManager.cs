@@ -82,6 +82,13 @@ public class GameManager : MonoBehaviour
 			elevatorBehaviourScript = GameObject.FindGameObjectWithTag("Elevator").GetComponent<ElevatorBehaviour>();
 			doorBehaviourScript = GameObject.FindGameObjectWithTag("Door").GetComponent<DoorBehaviour>();
 
+			StartCoroutine(StartLevel1());
+		}
+		else if (scene.name == "Level 2")
+		{
+			
+			doorBehaviourScript = GameObject.FindGameObjectWithTag("Door").GetComponent<DoorBehaviour>();
+
 			StartCoroutine(StartLevel2());
 		}
 
@@ -95,12 +102,18 @@ public class GameManager : MonoBehaviour
 		
 	}
 
-	IEnumerator StartLevel2()
+	IEnumerator StartLevel1()
 	{
 		batterySO.energy = batterySO.maxEnergy;
-		yield return new WaitForSeconds(1f);
+		yield return new WaitForSeconds(0.3f);
 		doorBehaviourScript.CloseDoor();
 		yield return new WaitForSeconds(1.5f);
 		elevatorBehaviourScript.ActivateElevator();
+	}
+	IEnumerator StartLevel2()
+	{
+		batterySO.energy = batterySO.maxEnergy;
+		yield return new WaitForSeconds(0.2f);
+		doorBehaviourScript.CloseDoor();
 	}
 }
