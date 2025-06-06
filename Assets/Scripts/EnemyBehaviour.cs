@@ -35,12 +35,14 @@ public class EnemyBehaviour : MonoBehaviour
 	private KnockBack knockBackScript;
 
 	public AudioClip deactivateEnemySound;
+	public EnemySwitch enemySwitchScript;
 
 	void Start()
 	{
 		rb = GetComponent<Rigidbody2D>();
 		anim = GetComponentInChildren<Animator>();
 		light2D = GetComponent<Light2D>();
+		enemySwitchScript = GetComponentInChildren<EnemySwitch>();	
 		startPos = transform.position;
 
 		walkSpeed = enemyMoveSpeed;
@@ -208,5 +210,6 @@ public class EnemyBehaviour : MonoBehaviour
 		transform.position = startPos;
 		isDeactivated = false;
 		anim.SetBool("isShutDown", false);
+		enemySwitchScript.anim.SetBool("isPulled", false);
 	}
 }

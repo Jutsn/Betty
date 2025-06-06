@@ -5,7 +5,7 @@ using System.Collections;
 public class EnemySwitch : MonoBehaviour
 {
 	EnemyBehaviour enemyBehaviourScript;
-	Animator anim;
+	public Animator anim;
 
 	private void Start()
 	{
