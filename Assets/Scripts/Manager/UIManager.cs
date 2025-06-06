@@ -19,6 +19,8 @@ public class UIManager : MonoBehaviour
     private GameObject consolePanel;
     [SerializeField]
     private GameObject PressFPanel;
+    [SerializeField]
+    private GameObject PressQPanel;
 
 
     private void Awake()
@@ -74,5 +76,14 @@ public class UIManager : MonoBehaviour
     public void HidePressFPanelUI()
     {
 		PressFPanel.SetActive(false);
+    }
+    public void ShowPressQPanelUI()
+    {
+		PressQPanel.SetActive(true);
+    }
+
+    public void HidePressQPanelUI()
+    {
+		PressQPanel.SetActive(false);
     }
 }

@@ -67,7 +67,7 @@ public class PlayerLighting : MonoBehaviour
             StartCoroutine(ShotCooldown());   
         }
 
-        if (isInChargingStation && Input.GetKeyDown(KeyCode.E))
+        if (isInChargingStation && Input.GetKeyDown(KeyCode.E) &&!GameManager.Instance.gameOver)
         {
             Recharge();
         }

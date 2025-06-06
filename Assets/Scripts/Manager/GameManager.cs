@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
 	private PlayerMovement playerMovementScript;
 
 	public bool showFKey = true;
+	public bool showQKey = true;
 	public bool startOfTutorialLevel = true;
 
 

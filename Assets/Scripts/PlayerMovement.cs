@@ -44,6 +44,11 @@ public class PlayerMovement : MonoBehaviour
             UIManager.Instance.HidePressFPanelUI();
 			GameManager.Instance.showFKey = false;
         }
+        if (Input.GetKeyDown(KeyCode.Q) && GameManager.Instance.showQKey)
+        {
+            UIManager.Instance.HidePressQPanelUI();
+			GameManager.Instance.showQKey = false;
+        }
             
 
         grounded = Physics2D.Raycast(transform.position, Vector2.down, playerHeight/2 + 0.2f, groundLayer);
