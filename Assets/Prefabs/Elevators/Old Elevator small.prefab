@@ -316,9 +316,14 @@ MonoBehaviour:
   loop: 1
   waitTime: 3
   isActivated: 0
+  moving: 0
+  waiting: 0
   animators: []
   lights:
   - {fileID: 1643049852306281236}
+  activationSound: {fileID: 0}
+  moveCount: 0
+  playerOnBoard: 0
 --- !u!50 &1728376712486052748
 Rigidbody2D:
   serializedVersion: 5

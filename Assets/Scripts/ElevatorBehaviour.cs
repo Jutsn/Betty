@@ -3,6 +3,7 @@ using System.Collections;
 using UnityEngine.Rendering.Universal;
 using System.Collections.Generic;
 using UnityEngine.Assertions;
+using System;
 
 public class ElevatorBehaviour : MonoBehaviour
 {
@@ -16,8 +17,8 @@ public class ElevatorBehaviour : MonoBehaviour
 
 	private Vector2 targetPosition;
 	[SerializeField] private bool isActivated = true;
-	private bool moving = false;
-	private bool waiting = false;
+	public bool moving = false;
+	public bool waiting = false;
 
 	private Rigidbody2D rb;
 
@@ -32,12 +33,16 @@ public class ElevatorBehaviour : MonoBehaviour
 
 	public AudioClip activationSound;
 
+	public int moveCount = 0;
+	public bool playerOnBoard = false;
+
+	bool coroutineStarted = false;
+
 	void Start()
 	{
 		rb = GetComponent<Rigidbody2D>();
 		rb.bodyType = RigidbodyType2D.Kinematic;
 		animators = GetComponentsInChildren<Animator>();
-
 		lights = GetComponentsInChildren<Light2D>();
 
 		targetPosition = pointB.position;
@@ -58,8 +63,10 @@ public class ElevatorBehaviour : MonoBehaviour
 			Vector2 newPosition = Vector2.MoveTowards(currentPosition, targetPosition, speed * Time.fixedDeltaTime);
 			rb.MovePosition(newPosition);
 
-			if (Vector2.Distance(newPosition, targetPosition) < 0.01f)
+			if (Vector2.Distance(newPosition, targetPosition) < 0.01f && !coroutineStarted)
 			{
+				targetPosition = (targetPosition == (Vector2)pointA.position) ? pointB.position : pointA.position;
+				coroutineStarted = true;
 				StartCoroutine(WaitAndSwitchTarget());
 			}
 		}
@@ -85,23 +92,53 @@ public class ElevatorBehaviour : MonoBehaviour
 	IEnumerator WaitAndSwitchTarget()
 	{
 		waiting = true;
-		yield return new WaitForSeconds(waitTime);
+		moveCount++;
 
-		if (loop)
+		if (loop && moveCount < 2)
 		{
-			targetPosition = (targetPosition == (Vector2)pointA.position) ? pointB.position : pointA.position;
-			moving = true; // Bewegung fortsetzen
+			yield return new WaitForSeconds(waitTime);
+			waiting = false;
 		}
+		else if (loop && moveCount == 2 && playerOnBoard)
+		{
+			yield return new WaitForSeconds(waitTime);
+			if (playerOnBoard)
+			{
+				waiting = false;
+			}
+			else
+			{
+				moving = false;
+				waiting = false;
+			}
 
-		waiting = false;
+		}
+		else if (loop && moveCount == 2)
+		{
+			moving = false;
+			waiting = false;
+		}
+		
+		
+		coroutineStarted = false;
+
 	}
 
 	void OnTriggerEnter2D(Collider2D other)
 	{
 		if (!autoStart && other.CompareTag("Player"))
 		{
+			playerOnBoard = true;
 			moving = true;
+			if(moveCount >= 2)
+			{
+				moveCount = 0;
+			}
 		}
+	}
+	private void OnTriggerExit2D(Collider2D other)
+	{
+		playerOnBoard = false;
 	}
 
 	void OnCollisionEnter2D(Collision2D collision)

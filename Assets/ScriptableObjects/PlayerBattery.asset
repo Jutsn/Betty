@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08c14055ccb7bdc4e81c863264626453, type: 3}
   m_Name: PlayerBattery
   m_EditorClassIdentifier: 
-  maxEnergy: 25
+  maxEnergy: 55
   tutorialStartEnergy: 25
-  energy: 2
-  maxEnergyUpgradeFromStation: 5
+  energy: 53.199997
+  maxEnergyUpgradeFromStation: 15
   lightOnEnergyConsumption: 3
-  passiveEnergyConsumption: 1
+  passiveEnergyConsumption: 0.9
   shootEnergyConsumption: 3

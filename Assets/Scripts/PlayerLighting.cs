@@ -55,7 +55,7 @@ public class PlayerLighting : MonoBehaviour
     }
     public void GetInput()
     {
-        if(Input.GetKeyDown(KeyCode.F) )
+        if(Input.GetKeyDown(KeyCode.F) && !GameManager.Instance.gameOver)
             if(lightActive)
             {
                 FlashLightOff();
@@ -68,7 +68,7 @@ public class PlayerLighting : MonoBehaviour
 				SoundManager.Instance.PlaySound(flashLightOn, 0f);
 			}
 
-        if(Input.GetKeyDown(KeyCode.Q) && canShoot && batterySO.energy > batterySO.shootEnergyConsumption)
+        if(Input.GetKeyDown(KeyCode.Q) && canShoot && batterySO.energy > batterySO.shootEnergyConsumption && !GameManager.Instance.gameOver)
         {
             Shoot();
             StartCoroutine(ShotCooldown());   
@@ -132,13 +132,15 @@ public class PlayerLighting : MonoBehaviour
 		playerLight.enabled = true;
 		passiveLight.gameObject.SetActive(false);
 		lightActive = true;
+        UIManager.Instance.ChangeBatteryColorToRed();
 	}
     
 
     public void Shoot()
     {
             batterySO.energy -= batterySO.shootEnergyConsumption;
-            UIManager.Instance.UpdateBatteryChargeUI();
+		    UIManager.Instance.ChangeBatteryColorToRed();
+		    UIManager.Instance.UpdateBatteryChargeUI();
             GameObject lightOrb =  LightOrbPool.Instance.GetPooledLightOrb();
             if (lightOrb != null)
             {

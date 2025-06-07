@@ -28,6 +28,8 @@ public class GameManager : MonoBehaviour
 	public AudioClip song2;
 	public AudioClip song3;
 
+	public bool canMove = true;
+
 
 	private void Awake()
 	{
@@ -61,7 +63,7 @@ public class GameManager : MonoBehaviour
 	}
 	IEnumerator RespawnCoroutine()
 	{
-		yield return new WaitForSeconds(5f);
+		yield return new WaitForSeconds(3f);
 		//Warte bis zum Ende der Animation
 		playerRespawnScript.Respawn();
 		batterySO.energy = batterySO.maxEnergy;
@@ -74,13 +76,15 @@ public class GameManager : MonoBehaviour
 	{
 		if (scene.name == "TutorialLevel")
 		{
-			batterySO.tutorialStartEnergy = 25f;
-			batterySO.maxEnergyUpgradeFromStation = 15f;
-			batterySO.lightOnEnergyConsumption = 3f;
+			canMove = false;
+			batterySO.tutorialStartEnergy = 30f;
+			batterySO.maxEnergyUpgradeFromStation = 10f;
+			batterySO.lightOnEnergyConsumption = 4f;
 			batterySO.passiveEnergyConsumption = 1f;
 			batterySO.shootEnergyConsumption = 3f;
 			batterySO.maxEnergy = batterySO.tutorialStartEnergy;
 			batterySO.energy = batterySO.maxEnergy;
+			UIManager.Instance.UpdateBatteryChargeUI();
 			StartCoroutine(ShowPressFUI());
 		}
 		else if (scene.name == "Level 1")
@@ -88,6 +92,7 @@ public class GameManager : MonoBehaviour
 			batterySO.maxEnergyUpgradeFromStation = 5f;
 			batterySO.lightOnEnergyConsumption = 3.5f;
 			batterySO.passiveEnergyConsumption = 1.4f;
+			UIManager.Instance.UpdateBatteryChargeUI();
 			elevatorBehaviourScript = GameObject.FindGameObjectWithTag("Elevator").GetComponent<ElevatorBehaviour>();
 			doorBehaviourScript = GameObject.FindGameObjectWithTag("Door").GetComponent<DoorBehaviour>();
 
@@ -106,7 +111,7 @@ public class GameManager : MonoBehaviour
 	IEnumerator ShowPressFUI()
 	{
 		showFKey = true;
-		yield return new WaitForSeconds(2f);
+		yield return new WaitForSeconds(1f);
 		UIManager.Instance.ShowPressFPanelUI();
 		
 	}

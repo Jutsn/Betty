@@ -3,7 +3,6 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    
     [SerializeField]BatterySO batterySO;
     [SerializeField]float moveSpeed = 5f;
     [SerializeField] float jumpPower = 4f;
@@ -15,11 +14,11 @@ public class PlayerMovement : MonoBehaviour
 	bool isJumping = false;
     private bool grounded;
 
-    private Rigidbody2D rb;
+
+	private Rigidbody2D rb;
     public Animator animator;
     private KnockBack knockback;
     public LayerMask groundLayer;
-    private SpriteRenderer spriteRenderer;
 
     public AudioClip deathSound;
 
@@ -28,7 +27,6 @@ public class PlayerMovement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponentInChildren<Animator>();
         knockback = GetComponent<KnockBack>();
-        spriteRenderer = GetComponentInChildren<SpriteRenderer>();
 
 	}
 
@@ -44,8 +42,11 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.F) && GameManager.Instance.showFKey)
         {
             UIManager.Instance.HidePressFPanelUI();
+            UIManager.Instance.ChangeBatteryColorToRed();
             MusicManager.Instance.PlaySongOne();
 			GameManager.Instance.showFKey = false;
+			GameManager.Instance.canMove = true;
+            
         }
         if (Input.GetKeyDown(KeyCode.Q) && GameManager.Instance.showQKey)
         {
@@ -74,7 +75,7 @@ public class PlayerMovement : MonoBehaviour
     private void FixedUpdate()
     {
 		
-        if (!knockback.isBeingKnockedBack && !GameManager.Instance.gameOver)
+        if (!knockback.isBeingKnockedBack && !GameManager.Instance.gameOver && GameManager.Instance.canMove)
         {
             Move();
         }
@@ -137,7 +138,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Jump()
     {
-		if (Input.GetButton("Jump") && !isJumping)
+		if (Input.GetButton("Jump") && !isJumping && GameManager.Instance.canMove)
 		{
 			rb.linearVelocity = new Vector2(rb.linearVelocityX, jumpPower);
 			isJumping = true;

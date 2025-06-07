@@ -55,7 +55,7 @@ Rigidbody2D:
   m_LinearDamping: 4
   m_AngularDamping: 0.05
   m_GravityScale: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 6a5c3d126a06b554cbe1c777fb638bf0, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -142,7 +142,7 @@ MonoBehaviour:
   anim: {fileID: 0}
   light2D: {fileID: 0}
   deactivateEnemySound: {fileID: 8300000, guid: cd7071958915bde4d84a8e659c40cd5d, type: 3}
-  deactivateEnemySound1: {fileID: 8300000, guid: 96e4eb62881227d429450e66a1f55007, type: 3}
+  enemySwitchScript: {fileID: 0}
 --- !u!114 &4491019490166036402
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -523,6 +523,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e062ef86328b7045809864fdddefc1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  anim: {fileID: 0}
 --- !u!61 &2673229223826124815
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -557,7 +558,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.111965016, y: 0.10736582}
+  m_Offset: {x: 0.12283855, y: 0.20321453}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.28866667}
@@ -567,5 +568,5 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.77607, y: 0.79206496}
+  m_Size: {x: 0.5796755, y: 0.60036755}
   m_EdgeRadius: 0

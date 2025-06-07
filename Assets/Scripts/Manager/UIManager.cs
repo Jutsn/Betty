@@ -24,61 +24,61 @@ public class UIManager : MonoBehaviour
     public TMPro.TextMeshProUGUI batteryPercentageText;
     public float batteryPercentage;
 
+    bool showWarning;
 
     private void Awake()
-  {
-    if (Instance == null)
     {
-      Instance = this;
-      DontDestroyOnLoad(gameObject);
-    }
-    else
-    {
-      Destroy(gameObject);
-    }
-  }
-
-    private void Start()
-    {
-        UpdateBatteryChargeUI();
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 
-  private void Update()
-  {
-    batteryPercentage = (batterySO.energy / batterySO.maxEnergy) * 100;
-      Debug.Log(batterySO.energy);
+
+    private void Update()
+    {
+        batteryPercentage = (batterySO.energy / batterySO.maxEnergy) * 100;
+        Debug.Log(batterySO.energy);
     }
 
     // Update is called once per frame
-  public void UpdateBatteryChargeUI()
-  {
-    batteryChargeSlider.maxValue = batterySO.maxEnergy;
-    batteryChargeSlider.value = batterySO.energy;
-    ChangeBatteryColor();
-    batteryPercentageText.text = $"{(batterySO.energy / batterySO.maxEnergy * 100).ToString("F0")}%";
-  }
-  
+    public void UpdateBatteryChargeUI()
+    {
+        batteryChargeSlider.maxValue = batterySO.maxEnergy;
+        batteryChargeSlider.value = batterySO.energy;
+        batteryPercentage = (batterySO.energy / batterySO.maxEnergy) * 100;
+        ChangeBatteryColor();
+        batteryPercentageText.text = $"{(batterySO.energy / batterySO.maxEnergy * 100).ToString("F0")}%";
+    }
+
     private void ChangeBatteryColor()
     {
-      if(batteryPercentage > 50f)
-      {
-          batteryChargeSlider.fillRect.GetComponent<Image>().color = Color.green;
-      }
-      else if(batteryPercentage > 20f)
-      {
-          batteryChargeSlider.fillRect.GetComponent<Image>().color = Color.yellow;
-      }
-      if(batteryPercentage <= 20f)
-      {
-          batteryChargeSlider.fillRect.GetComponent<Image>().color = Color.red;
-      }
-
+        if (!showWarning)
+        {
+            if (batteryPercentage > 50f)
+            {
+                batteryChargeSlider.fillRect.GetComponent<Image>().color = Color.green;
+            }
+            else if (batteryPercentage > 20f)
+            {
+                batteryChargeSlider.fillRect.GetComponent<Image>().color = Color.yellow;
+            }
+            else if (batteryPercentage <= 20f)
+            {
+                batteryChargeSlider.fillRect.GetComponent<Image>().color = Color.red;
+            }
+        }
     }
 
     public void ShowChargeStationUI()
-  {
-    chargeStationPanel.SetActive(true);
-  }
+    {
+        chargeStationPanel.SetActive(true);
+    }
 
     public void HideChargeStationUI()
     {
@@ -87,30 +87,43 @@ public class UIManager : MonoBehaviour
 
     public void ShowConsoleUI()
     {
-		consolePanel.SetActive(true);
+        consolePanel.SetActive(true);
     }
 
     public void HideConsoleUI()
     {
-		consolePanel.SetActive(false);
+        consolePanel.SetActive(false);
     }
 
     public void ShowPressFPanelUI()
     {
-		PressFPanel.SetActive(true);
+        PressFPanel.SetActive(true);
     }
 
     public void HidePressFPanelUI()
     {
-		PressFPanel.SetActive(false);
+        PressFPanel.SetActive(false);
     }
     public void ShowPressQPanelUI()
     {
-		PressQPanel.SetActive(true);
+        PressQPanel.SetActive(true);
     }
 
     public void HidePressQPanelUI()
     {
-		PressQPanel.SetActive(false);
+        PressQPanel.SetActive(false);
+    }
+
+    public void ChangeBatteryColorToRed()
+    {
+        showWarning = true;
+        batteryChargeSlider.fillRect.GetComponent<Image>().color = Color.red;
+        StartCoroutine(ResetBatteryColorAfterWarning());
+    }
+    IEnumerator ResetBatteryColorAfterWarning()
+    {
+        yield return new WaitForSeconds(0.5f);
+        showWarning = false;
+        ChangeBatteryColor();
     }
 }
