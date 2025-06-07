@@ -4,36 +4,23 @@ using UnityEngine.SceneManagement;
 
 public class EndCollider : MonoBehaviour
 {
-	public GameObject endPanel;
-	public GameObject endPanel2;
+	
 
 	
 
-	bool alreadyactivated;
+	bool alreadyactivated = false;
 	
 
-	private void OnTriggerEnter2D(Collider2D collision)
+	private void OnTriggerEnter2D(Collider2D other)
 	{
-		if (collision.gameObject.CompareTag("Player"))
+		if (other.gameObject.CompareTag("Player"))
 		{
-			Debug.Log("dfsdfdf");
 			if (!alreadyactivated)
 			{
 				alreadyactivated = true;
-				StartCoroutine(ActivateEndPanel());
+				UIManager.Instance.ShowEndPanels();
 			}
-
-
 		}
 	}
-	IEnumerator ActivateEndPanel()
-	{
-		endPanel.SetActive(true);
-		yield return new WaitForSeconds(3f);
-		endPanel.SetActive(false);
-		yield return new WaitForSeconds(0.5f);
-		endPanel2.SetActive(true);
-		yield return new WaitForSeconds(3f);
-		SceneManager.LoadScene("MainMenu");
-	}
+	
 }

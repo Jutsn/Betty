@@ -105,11 +105,13 @@ public class ElevatorBehaviour : MonoBehaviour
 			if (playerOnBoard)
 			{
 				waiting = false;
+				moveCount = 0;
 			}
-			else
+			else if(!playerOnBoard)
 			{
 				moving = false;
 				waiting = false;
+				moveCount = 0;
 			}
 
 		}
@@ -126,7 +128,7 @@ public class ElevatorBehaviour : MonoBehaviour
 
 	void OnTriggerEnter2D(Collider2D other)
 	{
-		if (!autoStart && other.CompareTag("Player"))
+		if (!autoStart && other.CompareTag("Player") && isActivated)
 		{
 			playerOnBoard = true;
 			moving = true;

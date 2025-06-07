@@ -1,8 +1,9 @@
-using UnityEngine;
-using UnityEngine.UI;
-using TMPro;
-using System.Collections;
 using System;
+using System.Collections;
+using TMPro;
+using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
@@ -24,7 +25,10 @@ public class UIManager : MonoBehaviour
     public TMPro.TextMeshProUGUI batteryPercentageText;
     public float batteryPercentage;
 
-    bool showWarning;
+	public GameObject endPanel;
+	public GameObject endPanel2;
+
+	bool showWarning;
 
     private void Awake()
     {
@@ -126,4 +130,20 @@ public class UIManager : MonoBehaviour
         showWarning = false;
         ChangeBatteryColor();
     }
+
+    public void ShowEndPanels()
+    {
+		StartCoroutine(ActivateEndPanel());
+	}
+
+	IEnumerator ActivateEndPanel()
+	{
+		endPanel.SetActive(true);
+		yield return new WaitForSeconds(2.5f);
+		endPanel.SetActive(false);
+		yield return new WaitForSeconds(0.5f);
+		endPanel2.SetActive(true);
+		yield return new WaitForSeconds(2.5f);
+		SceneManager.LoadScene("MainMenu");
+	}
 }
