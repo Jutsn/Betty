@@ -4,10 +4,6 @@ using UnityEngine.SceneManagement;
 
 public class EndCollider : MonoBehaviour
 {
-	
-
-	
-
 	bool alreadyactivated = false;
 	
 
@@ -22,5 +18,4 @@ public class EndCollider : MonoBehaviour
 			}
 		}
 	}
-	
 }
