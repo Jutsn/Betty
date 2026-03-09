@@ -5,9 +5,9 @@ The project was developed within a 5 day gamejam as a second-semester university
 The time pressure didn't allow for proper documentation.
 
 ## My Role
-- Lead Programmer
-- Gameplay Programmer
-- Game and Level Designer
+Lead Programmer   
+Gameplay Programmer   
+Game and Level Designer
 
 ## Features
 - Player Movement System
@@ -19,6 +19,6 @@ The time pressure didn't allow for proper documentation.
 - Lightning System
 
 ## Installation
-Clone the repository.
-Open the project in Unity 6.
-Press Play.
+1. Clone the repository
+2. Open the project in Unity 6
+3. Press Play
