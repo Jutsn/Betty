@@ -33510,25 +33510,9 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2242792424027390451, guid: f8e0369a5782f1744a3c05ae1b690163, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2540354658818208418, guid: f8e0369a5782f1744a3c05ae1b690163, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 4416162045739733591, guid: f8e0369a5782f1744a3c05ae1b690163, type: 3}
       propertyPath: m_Name
       value: UIManager
-      objectReference: {fileID: 0}
-    - target: {fileID: 5050965954132377546, guid: f8e0369a5782f1744a3c05ae1b690163, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5050965954132377546, guid: f8e0369a5782f1744a3c05ae1b690163, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7190313805490800662, guid: f8e0369a5782f1744a3c05ae1b690163, type: 3}
       propertyPath: m_LocalPosition.x
