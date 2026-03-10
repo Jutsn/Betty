@@ -4,6 +4,8 @@ This project is a small 2D-platformer unity prototype where the player controls 
 The project was developed within a 5 day gamejam as a second-semester university assignment. It was created full-time over a period of 5 days by a team of five students. All assets were created by the team.
 The time pressure didn't allow for proper documentation.
 
+itch.io page: https://anni-ui.itch.io/bimply-light-in-the-dark
+
 ## My Role
 Lead Programmer   
 Gameplay Programmer   
