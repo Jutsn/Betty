@@ -33048,6 +33048,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ChargingStation (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 9075187912479539522, guid: 7bd4aa0c3b739e5409493caaa89b8b75, type: 3}
+      propertyPath: canUpgradeMaxEnergy
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
