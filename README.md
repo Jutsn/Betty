@@ -6,7 +6,7 @@ The time pressure didn't allow for proper commentary.
 
 itch.io page: https://anni-ui.itch.io/bimply-light-in-the-dark
 
-## My Role
+## My Roles
 Lead Programmer   
 Gameplay Programmer   
 Game and Level Designer
