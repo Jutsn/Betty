@@ -29,4 +29,4 @@ This project is a small 2D-platformer Unity prototype where the player controls 
   5. When no errors occure and everything in Unity works as expected, commit and push the merge.
  
 ## Note
--It was a gamejam project with very limited time. I therefore didn't comment my code as good as I would usually do.
+It was a gamejam project with very limited time! I therefore didn't comment my code as good as I would usually do.
