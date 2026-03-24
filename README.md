@@ -31,5 +31,3 @@ It was a gamejam project with very limited time! We therefore didn't comment the
   4. When merge errors occure, contact me for help or create a pull request. Don't force push etc.!
   5. When no errors occure and everything in Unity works as expected, commit and push the merge.
  
-## Note
-It was a gamejam project with very limited time! I therefore didn't comment my code as good as I would usually do.
