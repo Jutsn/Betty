@@ -1,12 +1,15 @@
 # Bimp.ly - Light in the Dark 
 This project is a small 2D-platformer Unity prototype where the player controls a solardriven robot that seeks a way out of a dark cave. The objective is to navigate your way out by using the flashlight and the light projectiles of the robot, while managing it's battery state.
 
-## Features
-- Player Movement System
-- Battery System
-- Enemy Behaviour System
-- Elevator System
+## Note
+It was a gamejam project with very limited time! We therefore didn't comment the code as good as we would usually do.
 
+## Features
+- Player Controller
+- Battery Logic
+- Enemy Behaviour
+- Elevator Logic
+  
 - Grid-Based Movement System
 - Lightning System
 
