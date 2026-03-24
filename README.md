@@ -27,3 +27,6 @@ This project is a small 2D-platformer Unity prototype where the player controls 
   3. When ready, try to merge the feature branch to the main branch.
   4. When merge errors occure, contact me for help or create a pull request. Don't force push etc.!
   5. When no errors occure and everything in Unity works as expected, commit and push the merge.
+ 
+## Note
+-It was a gamejam project with very limited time. I therefore didn't comment my code as good as I would usually do.
