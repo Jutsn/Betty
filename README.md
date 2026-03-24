@@ -1,16 +1,6 @@
 # Bimp.ly - Light in the Dark 
 This project is a small 2D-platformer Unity prototype where the player controls a solardriven robot that seeks a way out of a dark cave. The objective is to navigate your way out by using the flashlight and the light projectiles of the robot, while managing it's battery state.
 
-The project was developed within a 5 day gamejam as a second-semester university assignment. It was created full-time over a period of 5 days by a team of five students. All assets were created by the team.
-The time pressure didn't allow for proper commentary.
-
-itch.io page: https://anni-ui.itch.io/bimply-light-in-the-dark
-
-## My Roles
-Lead Programmer   
-Gameplay Programmer   
-Game and Level Designer
-
 ## Features
 - Player Movement System
 - Battery System
@@ -20,12 +10,20 @@ Game and Level Designer
 - Grid-Based Movement System
 - Lightning System
 
-## Installation
-1. Clone the repository
-2. Open the project in Unity 6
-3. Press Play
+## Git Strategy 
 
-## Gameplay Video
+- **Branching Model**
+  - Master Branch: Holds the stable, production-ready version of the project.
+  - Feature Branches: Used for developing new features, bug fixes, or experiments. Each developer works in their own branch.
+  - Pull Requests: Changes are merged into the main branch via pull requests, ideally after code review and testing.
 
-[![Demo Video](https://img.youtube.com/vi/UNhmwbN4ajA/maxresdefault.jpg)](https://www.youtube.com/watch?v=UNhmwbN4ajA)
-<img width="1919" height="1079" alt="tkyJps" src="https://github.com/user-attachments/assets/9bdd5dcf-4b59-4103-8595-2797ace4906e" />
+- **Commit Best Practices**
+  - Commit early and often: Frequent commits help track progress and make it easier to revert changes if needed.
+  - Clear commit messages: Use descriptive messages like "Add biofeedback interface" or "Fix prefab loading issue".
+
+- **Process**
+  1. Create a new branch off master in which to do feature or bug work.
+  2. Commit often to this branch and push those changes to back them up.
+  3. When ready, try to merge the feature branch to the main branch.
+  4. When merge errors occure, contact me for help or create a pull request. Don't force push etc.!
+  5. When no errors occure and everything in Unity works as expected, commit and push the merge.
